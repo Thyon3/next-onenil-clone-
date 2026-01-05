@@ -1,7 +1,7 @@
 .section {
-    padding: 120px 40px;
-    background: #fff;
-    color: #000;
+    padding: 160px 40px 120px;
+    background: #000;
+    color: #fff;
 }
 
 .container {
@@ -9,88 +9,54 @@
     margin: 0 auto;
 }
 
-.header {
+.top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 80px;
 }
 
-.heading {
-    font-size: clamp(32px, 4vw, 42px);
+.title {
+    font-size: clamp(48px, 8vw, 120px);
     font-weight: 700;
-    line-height: 1.1;
-    max-width: 200px;
-}
-
-.links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
-
-.link {
-    font-size: 14px;
-    font-weight: 600;
+    line-height: 0.9;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    color: #000;
-    position: relative;
-    padding-bottom: 5px;
 }
 
-.link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #000;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
+.explore {
+    font-size: 16px;
+    opacity: 0.8;
 }
 
-.link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
+.explore:hover { opacity: 1; }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 56px;
 }
 
 .card {
     display: block;
     text-decoration: none;
     color: inherit;
-    position: relative;
 }
 
-/* Staircase effect */
-.card-1 {
-    transform: translateY(100px);
+.cardInner {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.card-2 {
-    transform: translateY(0);
-}
+.card:hover .cardInner { transform: translateY(-6px); }
 
-.card-3 {
-    transform: translateY(-100px);
-}
-
-.imageWrapper {
+.media {
     position: relative;
     width: 100%;
-    padding-bottom: 120%; /* Portrait aspect ratio */
+    padding-bottom: 140%;
+    background: #2a2a2a;
     overflow: hidden;
-    margin-bottom: 20px;
 }
 
 .image {
@@ -100,66 +66,46 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: saturate(0.9);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.overlay {
+.card:hover .image { transform: scale(1.04); }
+
+.mediaOverlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-color, rgba(0,0,0,0.5));
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.6) 100%);
     mix-blend-mode: multiply;
-    z-index: 1;
 }
 
-.card:hover .image {
-    transform: scale(1.05);
-}
-
-.card:hover .overlay {
-    opacity: 0.8;
-}
-
-.info {
-    position: relative;
-    z-index: 2;
+.caption {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px;
 }
 
 .client {
-    display: block;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 10px;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .projectTitle {
-    font-size: 24px;
+    font-size: clamp(18px, 2.4vw, 24px);
     font-weight: 700;
     line-height: 1.2;
-    margin: 0;
 }
 
 @media (max-width: 968px) {
     .section {
-        padding: 80px 20px;
+        padding: 120px 20px 80px;
     }
     
     .grid {
         grid-template-columns: 1fr;
-        gap: 60px;
-    }
-    
-    .card-1, .card-2, .card-3 {
-        transform: none;
-    }
-    
-    .imageWrapper {
-        padding-bottom: 75%; /* Landscape for mobile */
+        gap: 40px;
     }
 }

@@ -32,27 +32,24 @@ export default function SelectedWorks() {
     return (
         <section className={styles.section}>
             <div className={styles.container}>
-                <div className={styles.header}>
-                    <h2 className={styles.heading}>Selected Works</h2>
-                    <div className={styles.links}>
-                        <Link href="/work" className={styles.link}>
-                            View all work
-                        </Link>
-                        <Link href="/archive" className={styles.link}>
-                            Explore archive
-                        </Link>
-                    </div>
+                <div className={styles.top}>
+                    <h2 className={styles.title}>Works</h2>
+                    <Link href="/archive" className={styles.explore}>
+                        Explore archive
+                    </Link>
                 </div>
                 <div className={styles.grid}>
-                    {projects.map((project, index) => (
-                        <Link href={`/work/${project.id}`} key={project.id} className={`${styles.card} ${styles[`card-${index + 1}`]}`}>
-                            <div className={styles.imageWrapper} style={{ '--overlay-color': project.color } as any}>
-                                <img src={project.img} alt={project.title} className={styles.image} />
-                                <div className={styles.overlay}></div>
-                            </div>
-                            <div className={styles.info}>
-                                <span className={styles.client}>{project.client}</span>
-                                <h3 className={styles.projectTitle}>{project.title}</h3>
+                    {projects.map((project) => (
+                        <Link href={`/work/${project.id}`} key={project.id} className={styles.card}>
+                            <div className={styles.cardInner}>
+                                <div className={styles.media}>
+                                    <img src={project.img} alt={project.title} className={styles.image} />
+                                    <div className={styles.mediaOverlay}></div>
+                                </div>
+                                <div className={styles.caption}>
+                                    <div className={styles.client}>{project.client}</div>
+                                    <div className={styles.projectTitle}>{project.title}</div>
+                                </div>
                             </div>
                         </Link>
                     ))}

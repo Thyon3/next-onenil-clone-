@@ -31,22 +31,18 @@ export default function Archive() {
 
                     <div className={styles.grid}>
                         {projects.map((project) => (
-                            <Link
-                                key={project.id}
-                                href={`/work/${project.id}`}
-                                className={styles.card}
-                            >
-                                <div className={styles.imageWrapper}>
-                                    <div className={styles.imagePlaceholder}>
-                                        {project.title}
+                            <Link key={project.id} href={`/work/${project.id}`} className={styles.card}>
+                                <div className={styles.cardInner}>
+                                    <div className={styles.thumb}>
+                                        <div className={styles.placeholder}>{project.title}</div>
                                     </div>
-                                </div>
-                                <div className={styles.info}>
-                                    <div className={styles.meta}>
-                                        <span className={styles.year}>{project.year}</span>
-                                        <span className={styles.category}>{project.category}</span>
+                                    <div className={styles.caption}>
+                                        <div className={styles.meta}>
+                                            <span className={styles.year}>{project.year}</span>
+                                            <span className={styles.category}>{project.category}</span>
+                                        </div>
+                                        <h3 className={styles.title}>{project.title}</h3>
                                     </div>
-                                    <h3 className={styles.title}>{project.title}</h3>
                                 </div>
                             </Link>
                         ))}
