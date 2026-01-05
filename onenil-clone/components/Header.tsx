@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Menu from './Menu';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -12,12 +13,10 @@ export default function Header() {
                     <Link href="/contact" className={styles.contactLink}>
                         Get in touch
                     </Link>
-                    <button className={styles.menuBtn} aria-label="Open Menu">
-                        <span className={styles.menuLine}></span>
-                        <span className={styles.menuLine}></span>
-                    </button>
+                    <Menu />
                 </nav>
             </div>
         </header>
     );
 }
+

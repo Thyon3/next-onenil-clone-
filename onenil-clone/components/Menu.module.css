@@ -1,0 +1,113 @@
+.menuBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+    position: relative;
+}
+
+.menuLine {
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.menuLine.open:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menuLine.open:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.overlayOpen {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.navLink {
+    color: #fff;
+    font-size: clamp(32px, 6vw, 72px);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.7;
+}
+
+.navLink:hover {
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+.footer {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.socials {
+    display: flex;
+    gap: 40px;
+}
+
+.socialLink {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.socialLink:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .navLink {
+        font-size: 36px;
+    }
+    
+    .nav {
+        gap: 20px;
+    }
+    
+    .socials {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}
