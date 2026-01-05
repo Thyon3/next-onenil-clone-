@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Syncopate } from "next/font/google"; // Using Syncopate as a close alternative for the wide headings
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -8,7 +10,7 @@ const manrope = Manrope({
 });
 
 const syncopate = Syncopate({
-  variable: "--font-syncopate",
+  variable: "--font-heading",
   weight: ["400", "700"],
   subsets: ["latin"],
 });
@@ -26,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${syncopate.variable}`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

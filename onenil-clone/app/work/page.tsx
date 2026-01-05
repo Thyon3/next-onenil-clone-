@@ -1,7 +1,4 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Link from "next/link";
-import styles from './work.module.css';
 
 const works = [
     {
@@ -29,52 +26,57 @@ const works = [
 
 export default function Work() {
     return (
-        <main>
-            <Header />
-            <section className={styles.section}>
-                <div className={styles.container}>
-                    <div className={styles.header}>
-                        <h1 className={styles.heading}>Selected Works</h1>
-                        <p className={styles.subheading}>
-                            Rockets for brands that dare to stand out.
-                        </p>
-                    </div>
+        <main className="min-h-screen bg-black text-white pt-32 pb-20">
+            <section className="px-5 md:px-10 max-w-[1400px] mx-auto">
+                <div className="mb-24">
+                    <h1 className="text-[clamp(3.5rem,9vw,9rem)] font-heading uppercase font-bold leading-[0.9] mb-8">
+                        Selected <br /> Works
+                    </h1>
+                    <p className="text-xl md:text-2xl font-manrope max-w-2xl opacity-80">
+                        Rockets for brands that dare to stand out.
+                    </p>
+                </div>
 
-                    <div className={styles.works}>
-                        {works.map((work) => (
-                            <Link
-                                key={work.id}
-                                href={`/work/${work.id}`}
-                                className={styles.workCard}
-                            >
-                                <div className={styles.imageWrapper}>
-                                    <div className={styles.imagePlaceholder}>
-                                        {work.title}
-                                    </div>
-                                    <div className={styles.overlay}>
-                                        <span className={styles.viewCase}>View case →</span>
-                                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 mb-32">
+                    {works.map((work) => (
+                        <Link
+                            key={work.id}
+                            href={`/work/${work.id}`}
+                            className="group block"
+                        >
+                            <div className="relative aspect-[4/3] bg-gray-900 mb-8 overflow-hidden">
+                                <div className="absolute inset-0 flex items-center justify-center text-gray-700 font-heading text-2xl uppercase font-bold group-hover:scale-105 transition-transform duration-500">
+                                    {/* Placeholder for actual image */}
+                                    {work.title}
                                 </div>
-                                <div className={styles.info}>
-                                    <div className={styles.meta}>
-                                        <span className={styles.year}>{work.year}</span>
-                                        <span className={styles.category}>{work.category}</span>
-                                    </div>
-                                    <h2 className={styles.title}>{work.title}</h2>
-                                    <p className={styles.description}>{work.description}</p>
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span className="bg-white text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                        View case
+                                    </span>
                                 </div>
-                            </Link>
-                        ))}
-                    </div>
-
-                    <div className={styles.cta}>
-                        <Link href="/archive" className={styles.ctaBtn}>
-                            View all projects in archive
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <div className="flex justify-between items-center text-sm font-bold uppercase tracking-widest text-gray-500">
+                                    <span>{work.category}</span>
+                                    <span>{work.year}</span>
+                                </div>
+                                <h2 className="text-2xl md:text-3xl font-bold uppercase leading-tight group-hover:text-accentPurple transition-colors">
+                                    {work.title}
+                                </h2>
+                                <p className="text-lg opacity-80 font-manrope line-clamp-2">
+                                    {work.description}
+                                </p>
+                            </div>
                         </Link>
-                    </div>
+                    ))}
+                </div>
+
+                <div className="text-center">
+                    <Link href="/archive" className="inline-block border border-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+                        View all projects in archive
+                    </Link>
                 </div>
             </section>
-            <Footer />
         </main>
     );
 }

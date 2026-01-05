@@ -1,7 +1,4 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Link from "next/link";
-import styles from './archive.module.css';
 
 const projects = [
     { id: 1, title: 'Heineken F1 Confetti', year: '2024', category: 'Campaign' },
@@ -18,38 +15,44 @@ const projects = [
 
 export default function Archive() {
     return (
-        <main>
-            <Header />
-            <section className={styles.section}>
-                <div className={styles.container}>
-                    <div className={styles.header}>
-                        <h1 className={styles.heading}>Archive</h1>
-                        <p className={styles.subheading}>
-                            Explore our infinite archive, full of inspiration.
-                        </p>
-                    </div>
+        <main className="min-h-screen bg-black text-white pt-32 pb-20">
+            <section className="px-5 md:px-10 max-w-[1400px] mx-auto">
+                <div className="mb-24">
+                    <h1 className="text-[clamp(3.5rem,9vw,9rem)] font-heading uppercase font-bold leading-[0.9] mb-8">
+                        Archive
+                    </h1>
+                    <p className="text-xl md:text-2xl font-manrope max-w-2xl opacity-80">
+                        Explore our infinite archive, full of inspiration.
+                    </p>
+                </div>
 
-                    <div className={styles.grid}>
-                        {projects.map((project) => (
-                            <Link key={project.id} href={`/work/${project.id}`} className={styles.card}>
-                                <div className={styles.cardInner}>
-                                    <div className={styles.thumb}>
-                                        <div className={styles.placeholder}>{project.title}</div>
-                                    </div>
-                                    <div className={styles.caption}>
-                                        <div className={styles.meta}>
-                                            <span className={styles.year}>{project.year}</span>
-                                            <span className={styles.category}>{project.category}</span>
-                                        </div>
-                                        <h3 className={styles.title}>{project.title}</h3>
-                                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12">
+                    {projects.map((project) => (
+                        <Link key={project.id} href={`/work/${project.id}`} className="group block">
+                            <div className="relative aspect-square bg-gray-900 mb-6 overflow-hidden">
+                                <div className="absolute inset-0 flex items-center justify-center p-6 text-center text-gray-700 font-heading text-xl uppercase font-bold group-hover:scale-105 transition-transform duration-500">
+                                    {/* Placeholder */}
+                                    {project.title}
                                 </div>
-                            </Link>
-                        ))}
-                    </div>
+                                <div className="absolute inset-0 bg-accentPurple/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span className="text-white font-bold uppercase tracking-wider">
+                                        View
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="flex justify-between items-center text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
+                                    <span>{project.category}</span>
+                                    <span>{project.year}</span>
+                                </div>
+                                <h3 className="text-xl font-bold uppercase leading-tight group-hover:text-accentPurple transition-colors">
+                                    {project.title}
+                                </h3>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </section>
-            <Footer />
         </main>
     );
 }

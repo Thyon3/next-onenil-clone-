@@ -5,8 +5,6 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --font-manrope: "Manrope", sans-serif;
-  --font-heading: "Syncopate", sans-serif;
   --accent-purple: #4c1d95; /* Approximation of the gradient start */
   --accent-blue: #2563eb; /* Approximation of the gradient end */
 }
