@@ -1,5 +1,3 @@
-import styles from './Clients.module.css';
-
 const clients = [
     'AJAX',
     'EA SPORTS',
@@ -15,14 +13,17 @@ const clients = [
 
 export default function Clients() {
     return (
-        <section className={styles.section}>
-            <div className={styles.container}>
-                <h2 className={styles.heading}>Trusted by leading brands</h2>
-                <div className={styles.grid}>
+        <section className="bg-black text-white border-t border-white/10 py-[120px] px-10">
+            <div className="max-w-[1400px] mx-auto">
+                <h2 className="text-center text-xs font-bold uppercase tracking-[0.2em] mb-16 opacity-50">
+                    Trusted by leading brands
+                </h2>
+                <div className="flex flex-wrap justify-center gap-y-16 gap-x-20 items-center">
                     {clients.map((client, index) => (
-                        <div key={index} className={styles.client}>
-                            {/* In a real production app, these would be SVG components or <img /> tags */}
-                            <span className={styles.clientLogo}>{client}</span>
+                        <div key={index} className="flex items-center justify-center opacity-60 hover:opacity-100 transition">
+                            <span className="text-2xl font-heading font-bold uppercase tracking-wide">
+                                {client}
+                            </span>
                         </div>
                     ))}
                 </div>
