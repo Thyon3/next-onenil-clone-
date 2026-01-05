@@ -5,8 +5,8 @@ export default function Hero() {
         <section className={styles.hero}>
             <div className={styles.backgroundContainer}>
                 <img
-                    src="https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?q=80&w=2574&auto=format&fit=crop"
-                    alt="Sports atmosphere"
+                    src="https://images.unsplash.com/photo-1523978591478-c753949ff840?q=80&w=2574&auto=format&fit=crop"
+                    alt="Rocket launch"
                     className={styles.bgImage}
                 />
                 <div className={styles.overlay}></div>
@@ -14,7 +14,7 @@ export default function Hero() {
 
             <div className={styles.content}>
                 <h1 className={styles.heading}>
-                    The Creative <br /> Agency in Sports
+                    Buckle up and enjoy <br /> the flight
                 </h1>
 
                 <div className={styles.footer}>

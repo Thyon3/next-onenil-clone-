@@ -17,7 +17,7 @@ export default function CTABlocks() {
 
                 <Link href="/jobs" className={styles.block}>
                     <div className={styles.content}>
-                        <span className={styles.label}>We're always looking for creatives in the field</span>
+                        <span className={styles.label}>We’re always looking for creatives in the field</span>
                         <h3 className={styles.title}>
                             We currently have 1 open positions.
                         </h3>

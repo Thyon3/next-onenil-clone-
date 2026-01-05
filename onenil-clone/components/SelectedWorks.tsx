@@ -7,7 +7,7 @@ const projects = [
         client: 'Heineken',
         title: 'Heineken celebrates F1 fans at Mexican GP',
         category: 'Campaign',
-        img: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=1200&auto=format&fit=crop',
         color: '#009900' // Heineken Green
     },
     {
@@ -15,7 +15,7 @@ const projects = [
         client: 'UEFA',
         title: 'Boosting the European leagues with UEFA',
         category: 'Branding',
-        img: 'https://images.unsplash.com/photo-1522778119026-d647f0565c71?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1521417531300-0a2429f13a3f?q=80&w=1200&auto=format&fit=crop',
         color: '#002F6C' // UEFA Blue
     },
     {
@@ -23,7 +23,7 @@ const projects = [
         client: 'AFC Ajax',
         title: 'Ajax takes a stand against social hate',
         category: 'Campaign',
-        img: 'https://images.unsplash.com/photo-1518002171953-a080ee322818?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1519323651260-8d3b1c3e9f60?q=80&w=1200&auto=format&fit=crop',
         color: '#D2122E' // Ajax Red
     },
 ];

@@ -22,7 +22,7 @@ export default function Jobs() {
                     <div className={styles.header}>
                         <h1 className={styles.heading}>Join the team</h1>
                         <p className={styles.subheading}>
-                            We're always looking for creatives in the field. We currently have {jobs.length} open position{jobs.length !== 1 ? 's' : ''}.
+                            We’re always looking for creatives in the field. We currently have {jobs.length} open position{jobs.length !== 1 ? 's' : ''}.
                         </p>
                     </div>
 
@@ -45,9 +45,9 @@ export default function Jobs() {
                     </div>
 
                     <div className={styles.cta}>
-                        <h3 className={styles.ctaHeading}>Don't see a perfect fit?</h3>
+                        <h3 className={styles.ctaHeading}>Don’t see a perfect fit?</h3>
                         <p className={styles.ctaText}>
-                            We're always interested in meeting talented people. Send us your portfolio and let's talk.
+                            We’re always interested in meeting talented people. Send us your portfolio and let’s talk.
                         </p>
                         <Link href="/contact" className={styles.ctaBtn}>
                             Get in touch

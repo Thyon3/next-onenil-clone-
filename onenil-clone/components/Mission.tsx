@@ -6,12 +6,11 @@ export default function Mission() {
             <div className={styles.container}>
                 <div className={styles.contentWrapper}>
                     <div className={styles.leftColumn}>
-                        <div className={styles.categories}>
-                            <span className={styles.category}>Brands</span>
-                            <span className={styles.separator}>/</span>
-                            <span className={styles.category}>Fans</span>
-                            <span className={styles.separator}>/</span>
-                            <span className={styles.category}>Sports</span>
+                        <div className={styles.graphic}>
+                            <div className={styles.circleTop}></div>
+                            <div className={styles.circleLeft}></div>
+                            <div className={styles.circleRight}></div>
+                            <div className={styles.triangle}></div>
                         </div>
                     </div>
 

@@ -10,7 +10,7 @@ export default function Contact() {
                 <div className={styles.container}>
                     <h1 className={styles.heading}>Get in touch</h1>
                     <p className={styles.subheading}>
-                        Ready to create something extraordinary? Let's talk.
+                        Ready to create something extraordinary? Let’s talk.
                     </p>
 
                     <div className={styles.content}>
