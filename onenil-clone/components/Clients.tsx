@@ -1,8 +1,16 @@
 import styles from './Clients.module.css';
 
 const clients = [
-    'HEINEKEN', 'UEFA', 'AJAX', 'ADIDAS', 'KNVB',
-    'TOTO', 'ZIGGO SPORT', 'NIKE', 'PUMA', 'EREDIVISIE'
+    'AJAX',
+    'EA SPORTS',
+    'HEINEKEN',
+    'TOTO',
+    'UEFA',
+    'KNVB',
+    'EREDIVISIE',
+    'NIKE',
+    'PUMA',
+    'ZIGGO SPORT'
 ];
 
 export default function Clients() {
@@ -13,7 +21,8 @@ export default function Clients() {
                 <div className={styles.grid}>
                     {clients.map((client, index) => (
                         <div key={index} className={styles.client}>
-                            <span className={styles.clientName}>{client}</span>
+                            {/* In a real production app, these would be SVG components or <img /> tags */}
+                            <span className={styles.clientLogo}>{client}</span>
                         </div>
                     ))}
                 </div>
