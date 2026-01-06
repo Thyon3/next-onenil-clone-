@@ -26,11 +26,11 @@ const works = [
 
 export default function Work() {
     return (
-        <main className="min-h-screen bg-black text-white pt-32 pb-20">
+        <main className="min-h-screen bg-white text-black pt-32 pb-20">
             <section className="px-5 md:px-10 max-w-[1400px] mx-auto">
                 <div className="mb-24">
                     <h1 className="text-[clamp(3.5rem,9vw,9rem)] font-heading uppercase font-bold leading-[0.9] mb-8">
-                        Selected <br /> Works
+                        A deep dive <br /> into our cases
                     </h1>
                     <p className="text-xl md:text-2xl font-manrope max-w-2xl opacity-80">
                         Rockets for brands that dare to stand out.
@@ -44,8 +44,8 @@ export default function Work() {
                             href={`/work/${work.id}`}
                             className="group block"
                         >
-                            <div className="relative aspect-[4/3] bg-gray-900 mb-8 overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center text-gray-700 font-heading text-2xl uppercase font-bold group-hover:scale-105 transition-transform duration-500">
+                            <div className="relative aspect-[4/3] bg-gray-100 mb-8 overflow-hidden">
+                                <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-heading text-2xl uppercase font-bold group-hover:scale-105 transition-transform duration-500">
                                     {/* Placeholder for actual image */}
                                     {work.title}
                                 </div>
@@ -60,7 +60,7 @@ export default function Work() {
                                     <span>{work.category}</span>
                                     <span>{work.year}</span>
                                 </div>
-                                <h2 className="text-2xl md:text-3xl font-bold uppercase leading-tight group-hover:text-accentPurple transition-colors">
+                                <h2 className="text-2xl md:text-3xl font-bold uppercase leading-tight group-hover:text-accentBlue transition-colors">
                                     {work.title}
                                 </h2>
                                 <p className="text-lg opacity-80 font-manrope line-clamp-2">
@@ -72,7 +72,7 @@ export default function Work() {
                 </div>
 
                 <div className="text-center">
-                    <Link href="/archive" className="inline-block border border-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+                    <Link href="/archive" className="inline-block border border-black px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-black hover:text-white transition-colors">
                         View all projects in archive
                     </Link>
                 </div>

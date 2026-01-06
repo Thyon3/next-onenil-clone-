@@ -3,7 +3,7 @@ export default function Contact() {
         <main className="min-h-screen bg-black text-white pt-32 pb-20">
             <section className="px-5 md:px-10 max-w-[1400px] mx-auto">
                 <h1 className="text-[clamp(3rem,8vw,8rem)] font-heading uppercase font-bold leading-[0.9] mb-20">
-                    Get in touch
+                    Let's work <br /> together
                 </h1>
 
                 <p className="text-xl md:text-2xl font-manrope max-w-2xl mb-20 opacity-80">

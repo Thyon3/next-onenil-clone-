@@ -12,7 +12,7 @@ export default function Hero() {
 
             <div className="w-full max-w-[1600px] px-10 mx-auto relative z-10 flex flex-col justify-center h-full">
                 <h1 className="font-heading uppercase font-extrabold leading-[0.9] tracking-tight text-center text-[clamp(48px,9vw,140px)]">
-                    Buckle up and enjoy <br /> the flight
+                    Champions <br /> of Culture
                 </h1>
                 <div className="absolute left-10 right-10 bottom-10 flex justify-between items-end">
                     <div className="flex flex-col items-center gap-2 uppercase tracking-[0.2em] text-sm opacity-70">
