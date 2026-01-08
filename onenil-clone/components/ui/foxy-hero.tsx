@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useMemo } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface FoxyHeroProps {
@@ -31,6 +31,8 @@ interface FoxyHeroProps {
         };
     };
     dashboardImage?: string;
+    leftImage?: string;
+    rightImage?: string;
     backgroundColor?: string;
     hideHeader?: boolean;
     className?: string;
@@ -45,12 +47,32 @@ export function FoxyHero({
     subtitle,
     ctaButtons,
     dashboardImage,
-    backgroundColor = "#000000",
+    leftImage,
+    rightImage,
+    backgroundColor = "#020205",
     hideHeader = false,
     className,
     children,
 }: FoxyHeroProps) {
     const titleWords = title.split(" ");
+    const { scrollY } = useScroll();
+
+    // Parallax effects for the players
+    const leftPlayerY = useTransform(scrollY, [0, 500], [0, -50]);
+    const rightPlayerY = useTransform(scrollY, [0, 500], [0, 50]);
+
+    // Generate stars for the night sky effect
+    const stars = useMemo(() => {
+        return Array.from({ length: 150 }).map((_, i) => ({
+            id: i,
+            size: Math.random() * 2 + 1,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            opacity: Math.random() * 0.7 + 0.3,
+            duration: Math.random() * 3 + 2,
+            delay: Math.random() * 5,
+        }));
+    }, []);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -82,39 +104,92 @@ export function FoxyHero({
                 "relative w-full h-screen flex flex-col items-center justify-center overflow-hidden",
                 className
             )}
-            style={{ background: backgroundColor }}
+            style={{
+                background: `radial-gradient(circle at center, #0a0a1a 0%, ${backgroundColor} 100%)`
+            }}
             role="banner"
             aria-label="Hero section"
         >
-            {/* Minimalist Background Grid */}
-            <div className="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
-                <div
-                    className="absolute inset-0"
+            {/* Space Background Layers */}
+            <div className="absolute inset-0 pointer-events-none">
+                {/* Stars */}
+                {stars.map((star) => (
+                    <motion.div
+                        key={star.id}
+                        className="absolute bg-white rounded-full"
+                        style={{
+                            width: star.size,
+                            height: star.size,
+                            top: star.top,
+                            left: star.left,
+                            opacity: star.opacity,
+                        }}
+                        animate={{
+                            opacity: [star.opacity, 0.2, star.opacity],
+                            scale: [1, 1.2, 1],
+                        }}
+                        transition={{
+                            duration: star.duration,
+                            repeat: Infinity,
+                            delay: star.delay,
+                            ease: "easeInOut",
+                        }}
+                    />
+                ))}
+
+                {/* Galaxy / Nebula Effects */}
+                <motion.div
+                    className="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full opacity-20"
                     style={{
-                        backgroundImage: `linear-gradient(to right, #ffffff11 1px, transparent 1px), linear-gradient(to bottom, #ffffff11 1px, transparent 1px)`,
-                        backgroundSize: '40px 40px'
+                        background: "radial-gradient(circle, #4a148c 0%, transparent 70%)",
+                        filter: "blur(120px)",
+                    }}
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.1, 0.2, 0.1],
+                        rotate: [0, 10, 0],
+                    }}
+                    transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "easeInOut",
                     }}
                 />
-                <div className="absolute inset-0 bg-radial-[circle_at_50%_50%] from-transparent to-black" />
             </div>
 
-            {/* Subtle Gradient Glows */}
-            <motion.div
-                className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-20"
-                style={{
-                    background: "radial-gradient(circle, #9d4edd 0%, transparent 70%)",
-                    filter: "blur(100px)",
-                }}
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.1, 0.2, 0.1],
-                }}
-                transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
-            />
+            {/* Left Player (3D Object Look) */}
+            {leftImage && (
+                <motion.div
+                    style={{ y: leftPlayerY }}
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
+                    className="absolute left-[-5%] bottom-[-5%] z-20 w-[35vw] max-w-[500px] pointer-events-none"
+                >
+                    <img
+                        src={leftImage}
+                        alt="Elite Athlete Left"
+                        className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter contrast-110 brightness-110"
+                    />
+                </motion.div>
+            )}
+
+            {/* Right Player (3D Object Look) */}
+            {rightImage && (
+                <motion.div
+                    style={{ y: rightPlayerY }}
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
+                    className="absolute right-[-5%] bottom-[-5%] z-20 w-[35vw] max-w-[500px] pointer-events-none"
+                >
+                    <img
+                        src={rightImage}
+                        alt="Elite Athlete Right"
+                        className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter contrast-110 brightness-110"
+                    />
+                </motion.div>
+            )}
 
             {/* Header (if visible) */}
             {!hideHeader && (
@@ -162,23 +237,26 @@ export function FoxyHero({
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 flex flex-col items-center px-4 max-w-[1200px]"
+                className="relative z-30 flex flex-col items-center px-4 max-w-[1400px]"
             >
                 <motion.span
                     variants={itemVariants}
-                    className="text-white/60 font-medium tracking-[0.3em] uppercase mb-6 text-sm md:text-base"
+                    className="text-neutral-400 font-medium tracking-[0.5em] uppercase mb-8 text-xs md:text-sm"
                 >
                     {subtitle}
                 </motion.span>
 
                 <motion.h1
-                    className="text-center font-heading font-bold text-white text-[clamp(40px,9vw,120px)] leading-[0.9] tracking-tighter uppercase mb-12"
+                    className="text-center font-heading font-bold text-[clamp(32px,6vw,90px)] leading-[1] tracking-tighter uppercase mb-16 max-w-[1200px]"
+                    style={{
+                        color: "#E5E7EB", // neutral-200 for a "friendlier" silver-white
+                    }}
                 >
                     {titleWords.map((word, i) => (
                         <motion.span
                             key={i}
                             variants={itemVariants}
-                            className="inline-block mr-[0.2em]"
+                            className="inline-block mr-[0.3em]"
                         >
                             {word}
                         </motion.span>
@@ -188,17 +266,17 @@ export function FoxyHero({
                 {ctaButtons && (
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-row flex-wrap justify-center items-center gap-6"
+                        className="flex flex-row flex-wrap justify-center items-center gap-8"
                     >
                         <button
                             onClick={ctaButtons.primary.onClick}
-                            className="bg-white text-black px-10 py-4 rounded-full font-bold uppercase tracking-tighter hover:scale-105 transition duration-300"
+                            className="bg-neutral-100 text-black px-12 py-5 rounded-full font-bold uppercase tracking-tight hover:scale-105 hover:bg-white transition duration-300"
                         >
                             {ctaButtons.primary.label}
                         </button>
                         <button
                             onClick={ctaButtons.secondary.onClick}
-                            className="border border-white/20 text-white px-10 py-4 rounded-full font-bold uppercase tracking-tighter hover:bg-white/10 hover:border-white/40 transition duration-300 backdrop-blur-sm"
+                            className="border border-neutral-700 text-neutral-300 px-12 py-5 rounded-full font-bold uppercase tracking-tight hover:bg-white/5 hover:border-neutral-500 transition duration-300 backdrop-blur-md"
                         >
                             {ctaButtons.secondary.label}
                         </button>
@@ -211,13 +289,13 @@ export function FoxyHero({
                 {dashboardImage && (
                     <motion.div
                         variants={itemVariants}
-                        className="mt-24 w-full max-w-[1000px] relative"
+                        className="mt-24 w-full max-w-[1000px] relative px-4"
                     >
                         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
                         <img
                             src={dashboardImage}
                             alt="Dashboard"
-                            className="w-full h-auto rounded-2xl border border-white/10 shadow-2xl"
+                            className="w-full h-auto rounded-2xl border border-white/5 shadow-2xl"
                         />
                     </motion.div>
                 )}
@@ -226,11 +304,11 @@ export function FoxyHero({
             {/* Scroll Indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.5 }}
+                animate={{ opacity: 0.2 }}
                 transition={{ delay: 2, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
             >
-                <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
+                <div className="w-[1px] h-16 bg-gradient-to-b from-neutral-500 to-transparent" />
             </motion.div>
         </section>
     );

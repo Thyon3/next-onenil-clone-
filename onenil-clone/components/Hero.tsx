@@ -5,26 +5,27 @@ import { FoxyHero } from "@/components/ui/foxy-hero";
 export default function Hero() {
     return (
         <FoxyHero
-            backgroundColor="#000000"
+            backgroundColor="#020205"
             hideHeader={true}
             logo={{
-                text: "ONE : NIL",
+                text: "ATHLON",
             }}
             navigation={[]}
-            title="Champions of Culture"
-            subtitle="The Creative Agency in Sports"
+            title="DEFINING THE FUTURE OF ELITE ATHLETICISM"
+            subtitle="Engineered for the Unstoppable. Modern high-performance wear designed to push the boundaries of sports culture and textile innovation."
+            leftImage="/images/player-left.png"
+            rightImage="/images/player-right.png"
             ctaButtons={{
                 primary: {
-                    label: "Get in touch",
+                    label: "Shop Elite",
                     onClick: () => {
-                        const contact = document.getElementById('contact');
-                        if (contact) contact.scrollIntoView({ behavior: 'smooth' });
-                        else window.location.href = "/contact";
+                        const works = document.getElementById('work');
+                        if (works) works.scrollIntoView({ behavior: 'smooth' });
                     },
                 },
                 secondary: {
-                    label: "Hold to Ignite",
-                    onClick: () => console.log("Ignition started"),
+                    label: "The Collection",
+                    onClick: () => console.log("Technology details"),
                 },
             }}
         />
