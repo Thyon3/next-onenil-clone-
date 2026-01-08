@@ -12,12 +12,15 @@ export default function Hero() {
             }}
             navigation={[]}
             title="Champions of Culture"
-            subtitle="THE CREATIVE AGENCY IN SPORTS"
-            dashboardImage="https://images.unsplash.com/photo-1523978591478-c753949ff840?q=80&w=2574&auto=format&fit=crop"
+            subtitle="The Creative Agency in Sports"
             ctaButtons={{
                 primary: {
                     label: "Get in touch",
-                    onClick: () => window.location.href = "/contact",
+                    onClick: () => {
+                        const contact = document.getElementById('contact');
+                        if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+                        else window.location.href = "/contact";
+                    },
                 },
                 secondary: {
                     label: "Hold to Ignite",
