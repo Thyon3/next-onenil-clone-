@@ -161,16 +161,27 @@ export function FoxyHero({
             {leftImage && (
                 <motion.div
                     style={{ y: leftPlayerY }}
-                    initial={{ x: -100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
-                    className="absolute left-[-5%] bottom-[-5%] z-20 w-[35vw] max-w-[500px] pointer-events-none"
+                    initial={{ x: -200, opacity: 0, scale: 0.8 }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        scale: 1,
+                    }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.8 }}
+                    className="absolute left-[-15%] bottom-[-10%] z-20 w-[55vw] max-w-[800px] pointer-events-none"
                 >
-                    <img
-                        src={leftImage}
-                        alt="Elite Athlete Left"
-                        className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter contrast-110 brightness-110"
-                    />
+                    <motion.div
+                        animate={{ y: [0, -15, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                        <img
+                            src={leftImage}
+                            alt="Elite Athlete Left"
+                            className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.9)] filter contrast-110 brightness-110"
+                        />
+                        {/* Subtle glow behind player */}
+                        <div className="absolute inset-0 bg-blue-500/10 blur-[100px] -z-10 rounded-full" />
+                    </motion.div>
                 </motion.div>
             )}
 
@@ -178,16 +189,27 @@ export function FoxyHero({
             {rightImage && (
                 <motion.div
                     style={{ y: rightPlayerY }}
-                    initial={{ x: 100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
-                    className="absolute right-[-5%] bottom-[-5%] z-20 w-[35vw] max-w-[500px] pointer-events-none"
+                    initial={{ x: 200, opacity: 0, scale: 0.8 }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        scale: 1,
+                    }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: 1 }}
+                    className="absolute right-[-15%] bottom-[-10%] z-20 w-[55vw] max-w-[800px] pointer-events-none"
                 >
-                    <img
-                        src={rightImage}
-                        alt="Elite Athlete Right"
-                        className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter contrast-110 brightness-110"
-                    />
+                    <motion.div
+                        animate={{ y: [0, -15, 0] }}
+                        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    >
+                        <img
+                            src={rightImage}
+                            alt="Elite Athlete Right"
+                            className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.9)] filter contrast-110 brightness-110"
+                        />
+                        {/* Subtle glow behind player */}
+                        <div className="absolute inset-0 bg-purple-500/10 blur-[100px] -z-10 rounded-full" />
+                    </motion.div>
                 </motion.div>
             )}
 
