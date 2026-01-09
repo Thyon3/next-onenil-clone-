@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "OneNil is a creative agency in sports.",
 };
 
+import { CartProvider } from "@/lib/cart-context";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,9 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${syncopate.variable}`}>
-        <Header />
-        {children}
-        <Footer />
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

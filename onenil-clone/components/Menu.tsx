@@ -6,6 +6,7 @@ import { IoClose } from 'react-icons/io5';
 import { BsRocketTakeoffFill } from 'react-icons/bs';
 
 const menuItems = [
+    { label: 'Store', href: '/shop', color: '#3b82f6' },
     { label: 'Work', href: '/work', color: '#ff4d6d' },
     { label: 'Archive', href: '/archive', color: '#00e5ff' },
     { label: 'Jobs', href: '/jobs', color: '#ffd166' },
