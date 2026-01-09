@@ -7,21 +7,21 @@ import { useRouter } from "next/navigation";
 export default function Hero() {
     const router = useRouter();
     return (
-        <div className="relative overflow-hidden bg-black">
+        <div className="relative overflow-hidden bg-background">
             {/* Enhanced layered background */}
             <div className="absolute inset-0 pointer-events-none">
                 {/* Base gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-black to-gray-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
 
                 {/* Animated gradient orbs */}
-                <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-600/5 rounded-full blur-3xl" />
+                <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accentBlue/5 rounded-full blur-3xl opacity-50" />
+                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-600/5 rounded-full blur-3xl opacity-50" />
 
                 {/* Grid overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+                <div className="absolute inset-0 bg-[linear-gradient(var(--border-color)_1px,transparent_1px),linear-gradient(90deg,var(--border-color)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20" />
 
                 {/* Subtle noise texture */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%221%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22256%22 height=%22256%22 filter=%22url(%23noise)%22 opacity=%220.15%22/%3E%3C/svg%3E')] opacity-10" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%221%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22256%22 height=%22256%22 filter=%22url(%23noise)%22 opacity=%220.15%22/%3E%3C/svg%3E')] opacity-[0.03]" />
             </div>
 
             {/* Main content wrapper */}
@@ -37,7 +37,7 @@ export default function Hero() {
                         text: (
                             <div className="flex items-center gap-3">
                                 <div className="h-5 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-cyan-400 rounded-full" />
-                                <span className="text-xl font-bold tracking-[0.2em] uppercase text-white">
+                                <span className="text-xl font-bold tracking-[0.2em] uppercase text-foreground">
                                     ATHLON
                                 </span>
                             </div>
@@ -56,11 +56,11 @@ export default function Hero() {
                     title={
                         <div className="flex flex-col items-center">
                             <div className="relative mb-2">
-                                <span className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-[-0.05em] leading-none select-none opacity-20 absolute -top-8 left-1/2 -translate-x-1/2 text-white blur-sm">
+                                <span className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-[-0.05em] leading-none select-none opacity-20 absolute -top-8 left-1/2 -translate-x-1/2 text-foreground blur-sm">
                                     ELITE
                                 </span>
                                 <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-[-0.02em] leading-none uppercase">
-                                    <span className="relative z-10 bg-gradient-to-b from-white via-white to-gray-500 bg-clip-text text-transparent drop-shadow-2xl">
+                                    <span className="relative z-10 bg-gradient-to-b from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent drop-shadow-2xl">
                                         ELITE
                                     </span>
                                 </h1>
@@ -75,7 +75,7 @@ export default function Hero() {
                         </div>
                     }
                     description={
-                        <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                             Advanced athletic wear engineered for peak performance.
                             Combining cutting-edge technology with premium materials
                             to elevate every movement.

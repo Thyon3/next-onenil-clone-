@@ -29,10 +29,10 @@ export default function Clients() {
         : partners.filter(partner => partner.category === activeCategory);
 
     return (
-        <section className="bg-gray-950 text-white py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
+        <section className="bg-background text-foreground py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
+                <div className="absolute inset-0 bg-background" />
                 <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px]" />
                 <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-600/5 rounded-full blur-[100px]" />
             </div>
@@ -55,7 +55,7 @@ export default function Clients() {
                     </div>
 
                     <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.1] mb-6">
-                        <span className="block bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+                        <span className="block text-foreground opacity-80">
                             INNOVATING WITH
                         </span>
                         <span className="block bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
@@ -63,7 +63,7 @@ export default function Clients() {
                         </span>
                     </h2>
 
-                    <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                         Collaborating with global leaders in sports technology, research, and innovation
                         to push the boundaries of athletic performance.
                     </p>
@@ -84,7 +84,7 @@ export default function Clients() {
                                 onClick={() => setActiveCategory(category)}
                                 className={`px-4 py-2 text-sm font-medium rounded-full border transition-all ${activeCategory === category
                                     ? 'bg-blue-500/20 border-blue-500 text-blue-400'
-                                    : 'bg-gray-900/50 border-gray-700 text-gray-400 hover:border-gray-600 hover:text-gray-300'
+                                    : 'bg-card border-border text-muted-foreground hover:border-gray-400 hover:text-foreground'
                                     }`}
                             >
                                 {category}
@@ -106,9 +106,9 @@ export default function Clients() {
                             onMouseEnter={() => setHoveredPartner(index)}
                             onMouseLeave={() => setHoveredPartner(null)}
                         >
-                            <div className={`group relative overflow-hidden rounded-xl border bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm transition-all duration-500 h-full ${hoveredPartner === index
-                                    ? 'border-gray-600 scale-105 shadow-xl shadow-blue-500/10'
-                                    : 'border-gray-800'
+                            <div className={`group relative overflow-hidden rounded-xl border bg-card backdrop-blur-sm transition-all duration-500 h-full ${hoveredPartner === index
+                                ? 'border-blue-500/30 scale-105 shadow-xl shadow-blue-500/10'
+                                : 'border-border'
                                 }`}>
                                 {/* Partner Logo */}
                                 <div className="aspect-square flex flex-col items-center justify-center p-6">
@@ -117,11 +117,11 @@ export default function Clients() {
                                         {partner.logo}
                                     </div>
                                     <div className="text-center">
-                                        <div className={`font-bold text-sm md:text-base transition-colors duration-300 ${hoveredPartner === index ? 'text-blue-400' : 'text-white'
+                                        <div className={`font-bold text-sm md:text-base transition-colors duration-300 ${hoveredPartner === index ? 'text-blue-400' : 'text-foreground'
                                             }`}>
                                             {partner.name}
                                         </div>
-                                        <div className="text-xs text-gray-400 mt-1">{partner.category}</div>
+                                        <div className="text-xs text-muted-foreground mt-1">{partner.category}</div>
                                     </div>
                                 </div>
 
@@ -135,13 +135,13 @@ export default function Clients() {
                                 )}
 
                                 {/* Description Tooltip */}
-                                <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg shadow-xl transition-all duration-300 ${hoveredPartner === index
-                                        ? 'opacity-100 translate-y-0 visible'
-                                        : 'opacity-0 translate-y-2 invisible'
+                                <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-2 bg-card border border-border rounded-lg shadow-xl transition-all duration-300 ${hoveredPartner === index
+                                    ? 'opacity-100 translate-y-0 visible'
+                                    : 'opacity-0 translate-y-2 invisible'
                                     }`} style={{ minWidth: '200px' }}>
-                                    <div className="text-sm font-medium text-white mb-1">{partner.name}</div>
-                                    <div className="text-xs text-gray-300">{partner.description}</div>
-                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45 border-r border-b border-gray-700"></div>
+                                    <div className="text-sm font-medium text-foreground mb-1">{partner.name}</div>
+                                    <div className="text-xs text-muted-foreground">{partner.description}</div>
+                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-card rotate-45 border-r border-b border-border"></div>
                                 </div>
                             </div>
                         </motion.div>
@@ -156,7 +156,7 @@ export default function Clients() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mt-20"
                 >
-                    <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 md:p-12">
+                    <div className="bg-card backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12">
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
                                 { value: "12+", label: "Global Partners", description: "Across 8 countries" },
@@ -183,7 +183,7 @@ export default function Clients() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="mt-16 text-center"
                 >
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                    <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                         Interested in partnering with us to advance sports technology?
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -200,7 +200,7 @@ export default function Clients() {
                         </a>
                         <a
                             href="/contact"
-                            className="group px-8 py-4 border border-gray-700 text-white font-semibold rounded-lg hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300"
+                            className="group px-8 py-4 border border-border text-foreground font-semibold rounded-lg hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300"
                         >
                             Contact Partnership Team
                         </a>

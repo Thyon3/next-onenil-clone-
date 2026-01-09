@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 
 export default function CTABlocks() {
     return (
-        <section className="bg-gray-950 px-5 md:px-10 lg:px-20 pb-24 md:pb-32 relative overflow-hidden">
+        <section className="bg-background px-5 md:px-10 lg:px-20 pb-24 md:pb-32 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
+                <div className="absolute inset-0 bg-background" />
                 <div className="absolute bottom-0 left-1/4 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px]" />
                 <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-cyan-600/5 rounded-full blur-[120px]" />
             </div>
@@ -92,13 +92,13 @@ export default function CTABlocks() {
                     >
                         <Link
                             href="/careers"
-                            className="group relative block overflow-hidden rounded-2xl min-h-[400px] md:min-h-[480px] bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm"
+                            className="group relative block overflow-hidden rounded-2xl min-h-[400px] md:min-h-[480px] bg-card backdrop-blur-sm"
                         >
                             {/* Border and Background */}
-                            <div className="absolute inset-0 border border-gray-800 group-hover:border-gray-600 transition-all duration-500" />
+                            <div className="absolute inset-0 border border-border group-hover:border-blue-500/30 transition-all duration-500" />
 
                             {/* Animated Grid Pattern */}
-                            <div className="absolute inset-0 opacity-5">
+                            <div className="absolute inset-0 opacity-[0.03]">
                                 <div className="absolute inset-0" style={{
                                     backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
                                                     linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)`,
@@ -131,7 +131,7 @@ export default function CTABlocks() {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                             </svg>
                                         </div>
-                                        <span className="text-sm font-semibold tracking-widest uppercase text-cyan-300">
+                                        <span className="text-sm font-semibold tracking-widest uppercase text-accentBlue">
                                             Join Our Team
                                         </span>
                                     </div>
@@ -142,32 +142,32 @@ export default function CTABlocks() {
 
                                     <div className="space-y-4 mb-8">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-cyan-400 rounded-full" />
-                                            <span className="text-gray-300">5 Open Positions</span>
+                                            <div className="w-2 h-2 bg-accentBlue rounded-full" />
+                                            <span className="text-muted-foreground">5 Open Positions</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-cyan-400 rounded-full" />
-                                            <span className="text-gray-300">Global Research Teams</span>
+                                            <div className="w-2 h-2 bg-accentBlue rounded-full" />
+                                            <span className="text-muted-foreground">Global Research Teams</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-cyan-400 rounded-full" />
-                                            <span className="text-gray-300">Elite Athlete Collaboration</span>
+                                            <div className="w-2 h-2 bg-accentBlue rounded-full" />
+                                            <span className="text-muted-foreground">Elite Athlete Collaboration</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
-                                        <span className="text-base font-semibold group-hover:text-cyan-300 transition-colors">
+                                        <span className="text-base font-semibold group-hover:text-accentBlue transition-colors">
                                             View Careers
                                         </span>
-                                        <div className="w-10 h-10 rounded-full border border-gray-300/30 group-hover:border-cyan-400 group-hover:bg-cyan-500/20 flex items-center justify-center transition-all duration-300 group-hover:translate-x-2">
-                                            <svg className="w-5 h-5 text-gray-300 group-hover:text-cyan-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <div className="w-10 h-10 rounded-full border border-border group-hover:border-accentBlue group-hover:bg-accentBlue/20 flex items-center justify-center transition-all duration-300 group-hover:translate-x-2">
+                                            <svg className="w-5 h-5 text-muted-foreground group-hover:text-accentBlue transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                             </svg>
                                         </div>
                                     </div>
-                                    <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                                         SF • Boston • Remote
                                     </span>
                                 </div>
@@ -192,13 +192,13 @@ export default function CTABlocks() {
                         className="group relative block overflow-hidden rounded-2xl min-h-[200px] md:min-h-[240px]"
                     >
                         {/* Background */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-cyan-900/20" />
+                        <div className="absolute inset-0 bg-card" />
 
                         {/* Animated Border */}
                         <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/30 rounded-2xl transition-all duration-500" />
 
                         {/* Content */}
-                        <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between h-full text-white">
+                        <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between h-full text-foreground">
                             <div className="mb-6 md:mb-0 md:mr-8">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-400 flex items-center justify-center">
@@ -206,21 +206,21 @@ export default function CTABlocks() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                         </svg>
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-bold">
+                                    <h3 className="text-xl md:text-2xl font-bold text-foreground">
                                         Performance Consultation
                                     </h3>
                                 </div>
-                                <p className="text-gray-300 max-w-2xl">
+                                <p className="text-muted-foreground max-w-2xl">
                                     Schedule a consultation with our performance specialists to discover how our technology can enhance your athletic capabilities.
                                 </p>
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <span className="text-base font-semibold group-hover:text-purple-300 transition-colors">
+                                <span className="text-base font-semibold group-hover:text-purple-300 transition-colors text-foreground">
                                     Book a Session
                                 </span>
-                                <div className="w-10 h-10 rounded-full border border-gray-300/30 group-hover:border-purple-400 group-hover:bg-purple-500/20 flex items-center justify-center transition-all duration-300 group-hover:translate-x-2">
-                                    <svg className="w-5 h-5 text-gray-300 group-hover:text-purple-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div className="w-10 h-10 rounded-full border border-border group-hover:border-purple-400 group-hover:bg-purple-500/20 flex items-center justify-center transition-all duration-300 group-hover:translate-x-2">
+                                    <svg className="w-5 h-5 text-muted-foreground group-hover:text-purple-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </div>

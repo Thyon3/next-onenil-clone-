@@ -95,7 +95,7 @@ export function FoxyHero({
                 className
             )}
             style={{
-                background: backgroundColor === "transparent" ? "transparent" : `linear-gradient(135deg, #0a0a0a 0%, ${backgroundColor} 50%, #000000 100%)`
+                background: backgroundColor === "transparent" ? "transparent" : "var(--bg-color)"
             }}
             role="banner"
             aria-label="Hero section"
@@ -105,26 +105,26 @@ export function FoxyHero({
                 <div className="absolute inset-0 pointer-events-none">
                     {/* Gradient mesh background */}
                     <div
-                        className="absolute inset-0 opacity-10"
+                        className="absolute inset-0 opacity-[0.05]"
                         style={{
-                            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                                            radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%)`,
+                            backgroundImage: `radial-gradient(circle at 20% 50%, var(--accent-glow) 0%, transparent 50%),
+                                            radial-gradient(circle at 80% 50%, var(--accent-glow) 0%, transparent 50%)`,
                         }}
                     />
 
                     {/* Grid pattern */}
                     <div
-                        className="absolute inset-0 opacity-5"
+                        className="absolute inset-0 opacity-[0.03]"
                         style={{
-                            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                                            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
+                            backgroundImage: `linear-gradient(var(--text-color) 1px, transparent 1px),
+                                            linear-gradient(90deg, var(--text-color) 1px, transparent 1px)`,
                             backgroundSize: '50px 50px',
                         }}
                     />
 
                     {/* Gradient overlays */}
-                    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-blue-900/10 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black via-transparent to-transparent" />
+                    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-accentBlue/5 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
             )}
 
@@ -203,7 +203,7 @@ export function FoxyHero({
                     <div className="flex items-center gap-3">
                         {logo.icon}
                         {typeof logo.text === "string" ? (
-                            <span className="font-bold text-xl tracking-tight text-white">
+                            <span className="font-bold text-xl tracking-tight text-foreground">
                                 {logo.text}
                             </span>
                         ) : (
@@ -220,8 +220,8 @@ export function FoxyHero({
                                     className={cn(
                                         "text-sm font-medium tracking-wide transition-all duration-300",
                                         item.isActive
-                                            ? "text-white border-b-2 border-blue-500 pb-1"
-                                            : "text-gray-400 hover:text-white hover:border-b hover:border-gray-500 pb-1"
+                                            ? "text-foreground border-b-2 border-blue-500 pb-1"
+                                            : "text-muted-foreground hover:text-foreground hover:border-b hover:border-gray-500 pb-1"
                                     )}
                                 >
                                     {item.label}
@@ -310,7 +310,7 @@ export function FoxyHero({
                                 className="max-w-2xl mx-auto pt-4 lg:pt-6"
                             >
                                 {typeof description === "string" ? (
-                                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed tracking-wide font-light">
+                                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed tracking-wide font-light">
                                         {description}
                                     </p>
                                 ) : (
@@ -365,7 +365,7 @@ export function FoxyHero({
                         {/* Performance Metrics - Professional */}
                         <motion.div
                             variants={itemVariants}
-                            className="grid grid-cols-3 gap-8 pt-12 mt-12 border-t border-gray-800/30 max-w-xl"
+                            className="grid grid-cols-3 gap-8 pt-12 mt-12 border-t border-border max-w-xl"
                         >
                             {[
                                 { value: "98%", label: "Performance", sublabel: "Boost" },
@@ -373,13 +373,13 @@ export function FoxyHero({
                                 { value: "3D", label: "Motion", sublabel: "Fit" }
                             ].map((stat, index) => (
                                 <div key={index} className="text-center">
-                                    <div className="text-2xl font-bold text-white tracking-tight">
+                                    <div className="text-2xl font-bold text-foreground tracking-tight">
                                         {stat.value}
                                     </div>
-                                    <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider">
+                                    <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">
                                         {stat.label}
                                     </div>
-                                    <div className="text-xs text-gray-500">
+                                    <div className="text-xs text-muted-foreground/60">
                                         {stat.sublabel}
                                     </div>
                                 </div>
@@ -427,7 +427,7 @@ export function FoxyHero({
                         <div className="w-px h-4 bg-gray-400 rounded-full" />
                         <div className="w-px h-4 bg-gray-600 rounded-full mt-1" />
                     </motion.div>
-                    <span className="text-xs text-gray-500 uppercase tracking-widest mt-2">
+                    <span className="text-xs text-muted-foreground uppercase tracking-widest mt-2">
                         Scroll
                     </span>
                 </div>

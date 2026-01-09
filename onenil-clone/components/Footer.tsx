@@ -7,11 +7,11 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-gray-950 text-white relative overflow-hidden">
+        <footer className="bg-background text-foreground relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+                <div className="absolute inset-0 bg-background" />
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
             </div>
 
             <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-20 md:pt-32 pb-12">
@@ -23,7 +23,7 @@ export default function Footer() {
                     transition={{ duration: 0.6 }}
                     className="mb-24"
                 >
-                    <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-10 md:p-14 max-w-5xl mx-auto">
+                    <div className="bg-card backdrop-blur-sm rounded-2xl border border-border p-10 md:p-14 max-w-5xl mx-auto">
                         <div className="grid lg:grid-cols-2 gap-10 items-center">
                             <div>
                                 <h3 className="text-3xl md:text-4xl font-bold mb-6">
@@ -31,7 +31,7 @@ export default function Footer() {
                                         Stay Ahead in Performance
                                     </span>
                                 </h3>
-                                <p className="text-lg text-gray-300 leading-relaxed">
+                                <p className="text-lg text-muted-foreground leading-relaxed">
                                     Subscribe to our newsletter for the latest in sports technology,
                                     product launches, and performance insights from our research teams.
                                 </p>
@@ -40,7 +40,7 @@ export default function Footer() {
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="flex-1 px-6 py-4 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all text-base"
+                                    className="flex-1 px-6 py-4 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all text-base"
                                 />
                                 <button
                                     type="submit"
@@ -68,7 +68,7 @@ export default function Footer() {
                                 <div className="h-6 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-cyan-400" />
                                 <span className="text-2xl font-bold tracking-tight">ATHLON</span>
                             </div>
-                            <p className="text-gray-300 text-lg mb-8 max-w-xs leading-relaxed">
+                            <p className="text-muted-foreground text-lg mb-8 max-w-xs leading-relaxed">
                                 Engineering the future of athletic performance through
                                 innovative material science and biomechanical research.
                             </p>
@@ -83,7 +83,7 @@ export default function Footer() {
 
                         {/* Quick Links */}
                         <div>
-                            <h4 className="text-base font-semibold tracking-wider uppercase text-blue-400 mb-8 pb-4 border-b border-gray-800">
+                            <h4 className="text-base font-semibold tracking-wider uppercase text-blue-400 mb-8 pb-4 border-b border-border">
                                 Explore
                             </h4>
                             <div className="space-y-4">
@@ -98,7 +98,7 @@ export default function Footer() {
                                     <Link
                                         key={link.label}
                                         href={link.href}
-                                        className="block text-gray-300 hover:text-blue-400 transition-colors text-lg"
+                                        className="block text-muted-foreground hover:text-blue-400 transition-colors text-lg"
                                     >
                                         {link.label}
                                     </Link>
@@ -108,7 +108,7 @@ export default function Footer() {
 
                         {/* Resources */}
                         <div>
-                            <h4 className="text-base font-semibold tracking-wider uppercase text-cyan-400 mb-8 pb-4 border-b border-gray-800">
+                            <h4 className="text-base font-semibold tracking-wider uppercase text-cyan-400 mb-8 pb-4 border-b border-border">
                                 Resources
                             </h4>
                             <div className="space-y-4">
@@ -123,7 +123,7 @@ export default function Footer() {
                                     <Link
                                         key={link.label}
                                         href={link.href}
-                                        className="block text-gray-300 hover:text-cyan-400 transition-colors text-lg"
+                                        className="block text-muted-foreground hover:text-cyan-400 transition-colors text-lg"
                                     >
                                         {link.label}
                                     </Link>
@@ -133,30 +133,30 @@ export default function Footer() {
 
                         {/* Contact & Social */}
                         <div>
-                            <h4 className="text-base font-semibold tracking-wider uppercase text-purple-400 mb-8 pb-4 border-b border-gray-800">
+                            <h4 className="text-base font-semibold tracking-wider uppercase text-purple-400 mb-8 pb-4 border-b border-border">
                                 Connect
                             </h4>
                             <div className="space-y-6">
                                 <div>
-                                    <div className="text-sm text-gray-500 mb-2">Email</div>
+                                    <div className="text-sm text-muted-foreground mb-2">Email</div>
                                     <a
                                         href="mailto:contact@athlon.tech"
-                                        className="text-gray-300 hover:text-purple-400 transition-colors text-lg font-medium"
+                                        className="text-muted-foreground hover:text-purple-400 transition-colors text-lg font-medium"
                                     >
                                         contact@athlon.tech
                                     </a>
                                 </div>
                                 <div>
-                                    <div className="text-sm text-gray-500 mb-2">Phone</div>
+                                    <div className="text-sm text-muted-foreground mb-2">Phone</div>
                                     <a
                                         href="tel:+14155550123"
-                                        className="text-gray-300 hover:text-purple-400 transition-colors text-lg font-medium"
+                                        className="text-muted-foreground hover:text-purple-400 transition-colors text-lg font-medium"
                                     >
                                         +1 (415) 555-0123
                                     </a>
                                 </div>
                                 <div className="pt-4">
-                                    <div className="text-sm text-gray-500 mb-4">Follow Us</div>
+                                    <div className="text-sm text-muted-foreground mb-4">Follow Us</div>
                                     <div className="flex items-center gap-4">
                                         {[
                                             { platform: 'LinkedIn', icon: '👔', color: 'hover:bg-blue-900/30 hover:border-blue-700' },
@@ -167,7 +167,7 @@ export default function Footer() {
                                             <a
                                                 key={social.platform}
                                                 href="#"
-                                                className={`w-14 h-14 rounded-xl bg-gray-900/50 border border-gray-800 flex items-center justify-center text-2xl transition-all duration-300 ${social.color}`}
+                                                className={`w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center text-2xl transition-all duration-300 ${social.color}`}
                                                 title={social.platform}
                                                 aria-label={`Follow us on ${social.platform}`}
                                             >
@@ -189,7 +189,7 @@ export default function Footer() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mb-16 pt-12 border-t border-gray-800"
                 >
-                    <h4 className="text-lg font-semibold tracking-wider uppercase text-gray-400 mb-10">
+                    <h4 className="text-lg font-semibold tracking-wider uppercase text-muted-foreground mb-10">
                         Global Offices
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -239,38 +239,38 @@ export default function Footer() {
                 >
                     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-8">
                         {/* Copyright */}
-                        <div className="text-base text-gray-400">
+                        <div className="text-base text-muted-foreground">
                             © {currentYear} Athlon Performance Technologies. All rights reserved.
                         </div>
 
                         {/* Legal Links */}
                         <div className="flex flex-wrap gap-8">
-                            <Link href="/privacy" className="text-base text-gray-400 hover:text-white transition-colors font-medium">
+                            <Link href="/privacy" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
                                 Privacy Policy
                             </Link>
-                            <Link href="/terms" className="text-base text-gray-400 hover:text-white transition-colors font-medium">
+                            <Link href="/terms" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
                                 Terms of Service
                             </Link>
-                            <Link href="/cookies" className="text-base text-gray-400 hover:text-white transition-colors font-medium">
+                            <Link href="/cookies" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
                                 Cookie Policy
                             </Link>
-                            <Link href="/accessibility" className="text-base text-gray-400 hover:text-white transition-colors font-medium">
+                            <Link href="/accessibility" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
                                 Accessibility
                             </Link>
-                            <Link href="/sustainability" className="text-base text-gray-400 hover:text-white transition-colors font-medium">
+                            <Link href="/sustainability" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
                                 Sustainability
                             </Link>
                         </div>
 
                         {/* Certification */}
                         <div className="flex flex-wrap gap-3">
-                            <div className="text-sm text-gray-500 px-4 py-2 bg-gray-900/50 rounded-full border border-gray-800">
+                            <div className="text-sm text-muted-foreground px-4 py-2 bg-card rounded-full border border-border">
                                 ISO 9001 Certified
                             </div>
-                            <div className="text-sm text-gray-500 px-4 py-2 bg-gray-900/50 rounded-full border border-gray-800">
+                            <div className="text-sm text-muted-foreground px-4 py-2 bg-card rounded-full border border-border">
                                 Sustainable Materials
                             </div>
-                            <div className="text-sm text-gray-500 px-4 py-2 bg-gray-900/50 rounded-full border border-gray-800">
+                            <div className="text-sm text-muted-foreground px-4 py-2 bg-card rounded-full border border-border">
                                 Athlete Tested
                             </div>
                         </div>
@@ -280,7 +280,7 @@ export default function Footer() {
                     <div className="mt-12 text-center">
                         <button
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            className="inline-flex items-center gap-3 text-base text-gray-400 hover:text-white transition-colors group"
+                            className="inline-flex items-center gap-3 text-base text-muted-foreground hover:text-foreground transition-colors group"
                         >
                             <span>Back to Top</span>
                             <svg className="w-5 h-5 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

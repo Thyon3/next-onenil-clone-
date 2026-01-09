@@ -3,11 +3,13 @@
 import Link from 'next/link';
 import Menu from './Menu';
 import { useCart } from '@/lib/cart-context';
-import { FiShoppingBag } from 'react-icons/fi';
+import { FiShoppingBag, FiSun, FiMoon } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
+import { useTheme } from '@/lib/theme-context';
 
 export default function Header() {
     const { cartCount } = useCart();
+    const { theme, toggleTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -47,6 +49,14 @@ export default function Header() {
                             </span>
                         )}
                     </Link>
+
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                        aria-label="Toggle theme"
+                    >
+                        {mounted && (theme === 'dark' ? <FiSun className="text-xl" /> : <FiMoon className="text-xl" />)}
+                    </button>
 
                     <Menu />
                 </nav>

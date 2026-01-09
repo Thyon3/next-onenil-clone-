@@ -73,10 +73,10 @@ const technologies = [
 
 export default function Services() {
     return (
-        <section className="bg-gray-950 text-white py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
+        <section className="bg-background text-foreground py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
+                <div className="absolute inset-0 bg-background" />
                 <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px]" />
                 <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[100px]" />
             </div>
@@ -99,7 +99,7 @@ export default function Services() {
                                 </span>
                             </div>
                             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.1]">
-                                <span className="block bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+                                <span className="block text-foreground opacity-80">
                                     ENGINEERED FOR
                                 </span>
                                 <span className="block bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
@@ -127,7 +127,7 @@ export default function Services() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group"
                         >
-                            <div className="relative overflow-hidden rounded-xl border border-gray-800 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm hover:border-gray-600 transition-all duration-500 h-full">
+                            <div className="relative overflow-hidden rounded-xl border border-border bg-card backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 h-full">
                                 {/* Icon */}
                                 <div className="p-6">
                                     <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -142,7 +142,7 @@ export default function Services() {
                                     </h3>
 
                                     {/* Description */}
-                                    <p className="text-gray-300 mb-6 leading-relaxed">
+                                    <p className="text-muted-foreground mb-6 leading-relaxed">
                                         {tech.description}
                                     </p>
 
@@ -151,7 +151,7 @@ export default function Services() {
                                         {tech.stats.map((stat, i) => (
                                             <div key={i} className="flex items-center gap-2">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400" />
-                                                <span className="text-sm text-gray-300">{stat}</span>
+                                                <span className="text-sm text-muted-foreground">{stat}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -175,7 +175,7 @@ export default function Services() {
                     transition={{ duration: 0.6, delay: 0.8 }}
                     className="mt-20"
                 >
-                    <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 md:p-12">
+                    <div className="bg-card backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12">
                         <div className="grid md:grid-cols-4 gap-8">
                             {[
                                 { value: "8", label: "Proprietary Technologies", description: "Patented innovations" },
@@ -203,13 +203,13 @@ export default function Services() {
                     transition={{ duration: 0.6, delay: 1 }}
                     className="mt-20 text-center"
                 >
-                    <div className="inline-block bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 md:p-12 max-w-2xl">
+                    <div className="inline-block bg-card backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12 max-w-2xl text-foreground">
                         <h3 className="text-2xl md:text-3xl font-bold mb-4">
                             <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                                 Experience the Difference
                             </span>
                         </h3>
-                        <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+                        <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                             Discover how our technology can transform your athletic performance.
                             Schedule a consultation with our performance specialists.
                         </p>

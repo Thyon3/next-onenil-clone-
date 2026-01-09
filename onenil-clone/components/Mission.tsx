@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 
 export default function Mission() {
     return (
-        <section className="bg-gray-950 text-white py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
+        <section className="bg-background text-foreground py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
+                <div className="absolute inset-0 bg-background" />
                 <div className="absolute top-1/2 left-1/4 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px]" />
                 <div className="absolute bottom-1/2 right-1/4 w-[800px] h-[800px] bg-cyan-600/5 rounded-full blur-[120px]" />
 
                 {/* Grid Pattern */}
-                <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0 opacity-[0.03]">
                     <div className="absolute inset-0" style={{
-                        backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-                                        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px)`,
+                        backgroundImage: `linear-gradient(90deg, var(--text-color) 1px, transparent 1px),
+                                        linear-gradient(var(--text-color) 1px, transparent 1px)`,
                         backgroundSize: '60px 60px',
                     }} />
                 </div>
@@ -65,8 +65,8 @@ export default function Mission() {
                                         <div className="absolute inset-0 flex items-center justify-center">
                                             <div className="text-center">
                                                 <div className="text-3xl mb-2">⚡</div>
-                                                <div className="text-sm font-bold tracking-widest uppercase">ATHLON</div>
-                                                <div className="text-xs text-gray-300">CORE</div>
+                                                <div className="text-sm font-bold tracking-widest uppercase text-white">ATHLON</div>
+                                                <div className="text-xs text-white/70">CORE</div>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +139,7 @@ export default function Mission() {
                                 </span>
                             </div>
                             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.1] mb-8">
-                                <span className="block bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+                                <span className="block text-foreground opacity-80">
                                     REDEFINING HUMAN
                                 </span>
                                 <span className="block bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
@@ -158,7 +158,7 @@ export default function Mission() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold mb-2">Biomechanical Innovation</h3>
-                                    <p className="text-gray-300 leading-relaxed">
+                                    <p className="text-muted-foreground leading-relaxed">
                                         We engineer apparel that works in harmony with the human body,
                                         using advanced biomechanics to enhance natural movement patterns
                                         and optimize athletic performance.
@@ -174,7 +174,7 @@ export default function Mission() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold mb-2">Material Science</h3>
-                                    <p className="text-gray-300 leading-relaxed">
+                                    <p className="text-muted-foreground leading-relaxed">
                                         Through proprietary fabric technologies like QuantumWeave™,
                                         we create adaptive materials that respond to environmental
                                         conditions and physiological demands in real-time.
@@ -190,7 +190,7 @@ export default function Mission() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold mb-2">Elite Standards</h3>
-                                    <p className="text-gray-300 leading-relaxed">
+                                    <p className="text-muted-foreground leading-relaxed">
                                         Every product is validated through rigorous testing with
                                         professional athletes, ensuring our technology delivers
                                         measurable performance advantages at the highest levels.
@@ -200,7 +200,7 @@ export default function Mission() {
                         </div>
 
                         {/* Technology Principles */}
-                        <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6">
+                        <div className="bg-card backdrop-blur-sm rounded-xl border border-border p-6">
                             <h3 className="text-lg font-semibold mb-4 text-center">Our Technology Principles</h3>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
@@ -209,9 +209,9 @@ export default function Mission() {
                                     { label: "Sustainable", value: "Eco-Materials" },
                                     { label: "Proven", value: "Athlete Tested" }
                                 ].map((principle, index) => (
-                                    <div key={index} className="text-center p-3 bg-gray-900/30 rounded-lg border border-gray-700">
-                                        <div className="text-sm font-medium text-white">{principle.label}</div>
-                                        <div className="text-xs text-gray-400 mt-1">{principle.value}</div>
+                                    <div key={index} className="text-center p-3 bg-background/30 rounded-lg border border-border">
+                                        <div className="text-sm font-medium text-foreground">{principle.label}</div>
+                                        <div className="text-xs text-muted-foreground mt-1">{principle.value}</div>
                                     </div>
                                 ))}
                             </div>
@@ -256,12 +256,12 @@ export default function Mission() {
                             { value: "24°C", label: "Temperature Range", sublabel: "Adaptive regulation" },
                             { value: "3.8x", label: "Moisture Wicking", sublabel: "Compared to cotton" }
                         ].map((metric, index) => (
-                            <div key={index} className="text-center p-6 bg-gradient-to-b from-gray-900/30 to-black/30 backdrop-blur-sm rounded-2xl border border-gray-800 hover:border-gray-600 transition-all">
+                            <div key={index} className="text-center p-6 bg-card backdrop-blur-sm rounded-2xl border border-border hover:border-blue-500/30 transition-all">
                                 <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                                     {metric.value}
                                 </div>
                                 <div className="text-sm font-semibold mt-2">{metric.label}</div>
-                                <div className="text-xs text-gray-400 mt-1">{metric.sublabel}</div>
+                                <div className="text-xs text-muted-foreground mt-1">{metric.sublabel}</div>
                             </div>
                         ))}
                     </div>

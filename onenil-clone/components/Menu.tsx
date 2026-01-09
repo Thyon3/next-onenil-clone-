@@ -104,14 +104,14 @@ export default function Menu() {
         <>
             {/* Menu Toggle Button */}
             <button
-                className="relative z-[100] p-3 rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-800 hover:border-gray-700 transition-all duration-300 group"
+                className="relative z-[100] p-3 rounded-lg bg-card backdrop-blur-sm border border-border hover:border-accentBlue/30 transition-all duration-300 group"
                 onClick={toggleMenu}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
             >
                 <div className="flex flex-col items-center justify-center w-6 h-5 relative">
-                    <span className={`absolute top-0 w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isVisible ? 'rotate-45 top-2' : ''}`}></span>
-                    <span className={`absolute top-2 w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isVisible ? 'opacity-0' : 'opacity-100'}`}></span>
-                    <span className={`absolute bottom-0 w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isVisible ? '-rotate-45 top-2' : ''}`}></span>
+                    <span className={`absolute top-0 w-6 h-0.5 bg-foreground rounded-full transition-all duration-300 ${isVisible ? 'rotate-45 top-2' : ''}`}></span>
+                    <span className={`absolute top-2 w-6 h-0.5 bg-foreground rounded-full transition-all duration-300 ${isVisible ? 'opacity-0' : 'opacity-100'}`}></span>
+                    <span className={`absolute bottom-0 w-6 h-0.5 bg-foreground rounded-full transition-all duration-300 ${isVisible ? '-rotate-45 top-2' : ''}`}></span>
                 </div>
                 <span className="sr-only">Menu</span>
             </button>
@@ -127,11 +127,11 @@ export default function Menu() {
 
                     {/* Menu Sidebar Container */}
                     <div
-                        className={`absolute inset-y-0 right-0 w-full max-w-4xl bg-gray-900 shadow-2xl transition-transform duration-500 ease-out ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}
+                        className={`absolute inset-y-0 right-0 w-full max-w-4xl bg-background shadow-2xl transition-transform duration-500 ease-out ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Gray Background with Subtle Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card" />
 
                         {/* Subtle Pattern Overlay */}
                         <div className="absolute inset-0 opacity-5">

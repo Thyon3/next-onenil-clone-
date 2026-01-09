@@ -50,10 +50,10 @@ export default function SelectedWorks() {
     const [hoveredId, setHoveredId] = useState<string | null>(null);
 
     return (
-        <section className="bg-gray-950 text-white py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
+        <section className="bg-background text-foreground py-24 md:py-32 px-5 md:px-10 lg:px-20 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-950" />
+                <div className="absolute inset-0 bg-background" />
                 <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px]" />
                 <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-[100px]" />
             </div>
@@ -76,7 +76,7 @@ export default function SelectedWorks() {
                                 </span>
                             </div>
                             <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[0.9]">
-                                <span className="block bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+                                <span className="block text-foreground opacity-80">
                                     ENGINEERED
                                 </span>
                                 <span className="block bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
@@ -85,7 +85,7 @@ export default function SelectedWorks() {
                             </h2>
                         </div>
                         <div className="md:text-right">
-                            <p className="text-lg text-gray-300 max-w-md mb-4">
+                            <p className="text-lg text-muted-foreground max-w-md mb-4">
                                 Cutting-edge athletic wear designed through biomechanical research and material innovation.
                             </p>
                             <Link
@@ -112,11 +112,11 @@ export default function SelectedWorks() {
                             { value: "2.4x", label: "Recovery Speed" },
                             { value: "24/7", label: "Biometric Tracking" }
                         ].map((stat, index) => (
-                            <div key={index} className="text-center p-4 bg-gray-900/30 backdrop-blur-sm rounded-xl border border-gray-800">
+                            <div key={index} className="text-center p-4 bg-card backdrop-blur-sm rounded-xl border border-border">
                                 <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                                     {stat.value}
                                 </div>
-                                <div className="text-xs text-gray-400 mt-2 uppercase tracking-wider">
+                                <div className="text-xs text-muted-foreground mt-2 uppercase tracking-wider">
                                     {stat.label}
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ export default function SelectedWorks() {
                                 onMouseEnter={() => setHoveredId(collection.id)}
                                 onMouseLeave={() => setHoveredId(null)}
                             >
-                                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm hover:border-gray-600 transition-all duration-500 h-full">
+                                <div className="relative overflow-hidden rounded-2xl border border-border bg-card backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 h-full">
                                     {/* Image Container */}
                                     <div className="relative aspect-[4/3] overflow-hidden">
                                         {/* Placeholder Image Background */}
@@ -166,7 +166,7 @@ export default function SelectedWorks() {
                                                 {Object.entries(collection.stats).map(([key, value]) => (
                                                     <div key={key} className="text-center">
                                                         <div className="text-lg font-bold text-white">{value}</div>
-                                                        <div className="text-xs text-gray-300 uppercase tracking-wider mt-1">
+                                                        <div className="text-xs text-white/70 uppercase tracking-wider mt-1">
                                                             {key}
                                                         </div>
                                                     </div>
@@ -190,7 +190,7 @@ export default function SelectedWorks() {
                                         <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
                                             {collection.title}
                                         </h3>
-                                        <p className="text-gray-300 mb-6 leading-relaxed">
+                                        <p className="text-muted-foreground mb-6 leading-relaxed">
                                             {collection.description}
                                         </p>
 
@@ -204,7 +204,7 @@ export default function SelectedWorks() {
                                             ].map((feature, i) => (
                                                 <span
                                                     key={i}
-                                                    className="px-3 py-1 text-xs bg-gray-900/50 text-gray-300 rounded-full border border-gray-700"
+                                                    className="px-3 py-1 text-xs bg-card/50 text-muted-foreground rounded-full border border-border"
                                                 >
                                                     {feature}
                                                 </span>
@@ -212,13 +212,13 @@ export default function SelectedWorks() {
                                         </div>
 
                                         {/* CTA */}
-                                        <div className="flex items-center justify-between pt-4 border-t border-gray-800">
-                                            <span className="text-sm font-medium text-gray-400 group-hover:text-blue-400 transition-colors">
+                                        <div className="flex items-center justify-between pt-4 border-t border-border">
+                                            <span className="text-sm font-medium text-muted-foreground group-hover:text-blue-400 transition-colors">
                                                 View Collection
                                             </span>
-                                            <div className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 transition-all">
+                                            <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 transition-all">
                                                 <svg
-                                                    className="w-4 h-4 text-gray-400 group-hover:text-blue-400 transition-colors"
+                                                    className="w-4 h-4 text-muted-foreground group-hover:text-blue-400 transition-colors"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
                                                     stroke="currentColor"
@@ -245,13 +245,13 @@ export default function SelectedWorks() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="mt-20 text-center"
                 >
-                    <div className="inline-block bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 md:p-12 max-w-2xl">
+                    <div className="inline-block bg-card backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12 max-w-2xl text-foreground">
                         <h3 className="text-2xl md:text-3xl font-bold mb-4">
                             <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                                 Ready to Elevate Your Performance?
                             </span>
                         </h3>
-                        <p className="text-gray-300 mb-8">
+                        <p className="text-muted-foreground mb-8">
                             Discover how our technology can enhance your athletic capabilities.
                             Schedule a consultation with our performance specialists.
                         </p>
@@ -269,7 +269,7 @@ export default function SelectedWorks() {
                             </Link>
                             <Link
                                 href="/contact"
-                                className="group px-8 py-4 border border-gray-700 text-white font-semibold rounded-lg hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300"
+                                className="group px-8 py-4 border border-border text-foreground font-semibold rounded-lg hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300"
                             >
                                 Book a Consultation
                             </Link>
