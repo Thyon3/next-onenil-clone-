@@ -35,7 +35,7 @@ const menuItems = [
     },
     {
         label: 'Collections',
-        href: '/collections',
+        href: '/shop',
         icon: <FiShoppingBag className="w-6 h-6" />,
         color: 'from-green-500 to-emerald-400',
         description: 'Performance engineered wear'

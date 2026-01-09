@@ -2,8 +2,10 @@
 
 import { FoxyHero } from "@/components/ui/foxy-hero";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+    const router = useRouter();
     return (
         <div className="relative overflow-hidden bg-black">
             {/* Enhanced layered background */}
@@ -91,10 +93,7 @@ export default function Hero() {
                                     </svg>
                                 </span>
                             ),
-                            onClick: () => {
-                                const works = document.getElementById('work');
-                                if (works) works.scrollIntoView({ behavior: 'smooth' });
-                            },
+                            onClick: () => router.push('/shop'),
                         },
                         secondary: {
                             label: "Explore Tech",
