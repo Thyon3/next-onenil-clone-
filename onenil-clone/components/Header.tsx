@@ -5,8 +5,13 @@ export default function Header() {
     return (
         <header className="fixed top-0 left-0 w-full z-[100] px-8 py-6 text-white transition-transform mix-blend-difference">
             <div className="max-w-[1800px] mx-auto flex items-center justify-between">
-                <div className="font-heading font-bold uppercase tracking-wider text-lg z-[101]">
-                    <Link href="/">ONE : NIL</Link>
+                <div className="z-[101]">
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="h-6 w-0.5 bg-gradient-to-b from-blue-500 to-cyan-400 group-hover:h-8 transition-all duration-300" />
+                        <span className="text-2xl font-bold tracking-wider bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent font-heading uppercase">
+                            ATHLON
+                        </span>
+                    </Link>
                 </div>
                 <nav className="flex items-center gap-12">
                     <Link

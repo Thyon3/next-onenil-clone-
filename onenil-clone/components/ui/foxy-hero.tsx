@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 interface FoxyHeroProps {
     logo?: {
         icon?: React.ReactNode;
-        text: string;
+        text: string | React.ReactNode;
     };
     navigation?: Array<{
         label: string;
@@ -18,15 +18,17 @@ interface FoxyHeroProps {
         label: string;
         onClick: () => void;
     };
-    title: string;
-    subtitle: string;
+    topLabel?: string | React.ReactNode;
+    title: string | React.ReactNode;
+    description?: string | React.ReactNode;
+    subtitle?: string | React.ReactNode;
     ctaButtons?: {
         primary: {
-            label: string;
+            label: string | React.ReactNode;
             onClick: () => void;
         };
         secondary: {
-            label: string;
+            label: string | React.ReactNode;
             onClick: () => void;
         };
     };
@@ -43,7 +45,9 @@ export function FoxyHero({
     logo = { text: "Foxy" },
     navigation = [],
     headerCta,
+    topLabel,
     title,
+    description,
     subtitle,
     ctaButtons,
     dashboardImage,
@@ -54,45 +58,31 @@ export function FoxyHero({
     className,
     children,
 }: FoxyHeroProps) {
-    const titleWords = title.split(" ");
     const { scrollY } = useScroll();
 
-    // Parallax effects for the players
-    const leftPlayerY = useTransform(scrollY, [0, 500], [0, -50]);
-    const rightPlayerY = useTransform(scrollY, [0, 500], [0, 50]);
-
-    // Generate stars for the night sky effect
-    const stars = useMemo(() => {
-        return Array.from({ length: 150 }).map((_, i) => ({
-            id: i,
-            size: Math.random() * 2 + 1,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            opacity: Math.random() * 0.7 + 0.3,
-            duration: Math.random() * 3 + 2,
-            delay: Math.random() * 5,
-        }));
-    }, []);
+    // Parallax effects
+    const leftPlayerY = useTransform(scrollY, [0, 500], [0, -40]);
+    const rightPlayerY = useTransform(scrollY, [0, 500], [0, 40]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1,
+                staggerChildren: 0.15,
                 delayChildren: 0.3,
             },
         },
     };
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+        hidden: { y: 25, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
             transition: {
                 type: "spring",
-                damping: 12,
+                damping: 15,
                 stiffness: 100,
             },
         },
@@ -101,152 +91,149 @@ export function FoxyHero({
     return (
         <section
             className={cn(
-                "relative w-full h-screen flex flex-col items-center justify-center overflow-hidden",
+                "relative w-full min-h-screen flex flex-col overflow-hidden",
                 className
             )}
             style={{
-                background: `radial-gradient(circle at center, #0a0a1a 0%, ${backgroundColor} 100%)`
+                background: backgroundColor === "transparent" ? "transparent" : `linear-gradient(135deg, #0a0a0a 0%, ${backgroundColor} 50%, #000000 100%)`
             }}
             role="banner"
             aria-label="Hero section"
         >
-            {/* Space Background Layers */}
-            <div className="absolute inset-0 pointer-events-none">
-                {/* Stars */}
-                {stars.map((star) => (
-                    <motion.div
-                        key={star.id}
-                        className="absolute bg-white rounded-full"
+            {/* Professional Background */}
+            {backgroundColor !== "transparent" && (
+                <div className="absolute inset-0 pointer-events-none">
+                    {/* Gradient mesh background */}
+                    <div
+                        className="absolute inset-0 opacity-10"
                         style={{
-                            width: star.size,
-                            height: star.size,
-                            top: star.top,
-                            left: star.left,
-                            opacity: star.opacity,
-                        }}
-                        animate={{
-                            opacity: [star.opacity, 0.2, star.opacity],
-                            scale: [1, 1.2, 1],
-                        }}
-                        transition={{
-                            duration: star.duration,
-                            repeat: Infinity,
-                            delay: star.delay,
-                            ease: "easeInOut",
+                            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                                            radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%)`,
                         }}
                     />
-                ))}
 
-                {/* Galaxy / Nebula Effects */}
-                <motion.div
-                    className="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full opacity-20"
-                    style={{
-                        background: "radial-gradient(circle, #4a148c 0%, transparent 70%)",
-                        filter: "blur(120px)",
-                    }}
-                    animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.1, 0.2, 0.1],
-                        rotate: [0, 10, 0],
-                    }}
-                    transition={{
-                        duration: 15,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                />
-            </div>
+                    {/* Grid pattern */}
+                    <div
+                        className="absolute inset-0 opacity-5"
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                                            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
+                            backgroundSize: '50px 50px',
+                        }}
+                    />
 
-            {/* Left Player (3D Object Look) */}
+                    {/* Gradient overlays */}
+                    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-blue-900/10 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black via-transparent to-transparent" />
+                </div>
+            )}
+
+            {/* Left Player - Larger & Better Positioned */}
             {leftImage && (
                 <motion.div
                     style={{ y: leftPlayerY }}
-                    initial={{ x: -200, opacity: 0, scale: 0.8 }}
+                    initial={{ x: -150, opacity: 0, scale: 0.95 }}
                     animate={{
                         x: 0,
                         opacity: 1,
-                        scale: 1,
+                        scale: 1
                     }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.8 }}
-                    className="absolute left-[-15%] bottom-[-10%] z-20 w-[55vw] max-w-[800px] pointer-events-none"
+                    transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+                    className="absolute left-0 lg:left-[-5%] top-1/2 -translate-y-1/2 z-10 w-[50vw] max-w-[900px] h-[80vh] pointer-events-none"
                 >
                     <motion.div
-                        animate={{ y: [0, -15, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        animate={{
+                            y: [0, -20, 0],
+                        }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                        className="relative w-full h-full"
                     >
                         <img
                             src={leftImage}
-                            alt="Elite Athlete Left"
-                            className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.9)] filter contrast-110 brightness-110"
+                            alt="Elite Athlete"
+                            className="w-full h-full object-contain object-right drop-shadow-[0_20px_80px_rgba(0,0,0,0.8)]"
+                            loading="eager"
                         />
-                        {/* Subtle glow behind player */}
-                        <div className="absolute inset-0 bg-blue-500/10 blur-[100px] -z-10 rounded-full" />
+                        {/* Subtle glow */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent blur-3xl -z-10 scale-110" />
                     </motion.div>
                 </motion.div>
             )}
 
-            {/* Right Player (3D Object Look) */}
+            {/* Right Player - Larger & Better Positioned */}
             {rightImage && (
                 <motion.div
                     style={{ y: rightPlayerY }}
-                    initial={{ x: 200, opacity: 0, scale: 0.8 }}
+                    initial={{ x: 150, opacity: 0, scale: 0.95 }}
                     animate={{
                         x: 0,
                         opacity: 1,
-                        scale: 1,
+                        scale: 1
                     }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: 1 }}
-                    className="absolute right-[-15%] bottom-[-10%] z-20 w-[55vw] max-w-[800px] pointer-events-none"
+                    transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
+                    className="absolute right-0 lg:right-[-5%] top-1/2 -translate-y-1/2 z-10 w-[50vw] max-w-[900px] h-[80vh] pointer-events-none"
                 >
                     <motion.div
-                        animate={{ y: [0, -15, 0] }}
-                        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                        animate={{
+                            y: [0, -20, 0],
+                        }}
+                        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                        className="relative w-full h-full"
                     >
                         <img
                             src={rightImage}
-                            alt="Elite Athlete Right"
-                            className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.9)] filter contrast-110 brightness-110"
+                            alt="Elite Athlete"
+                            className="w-full h-full object-contain object-left drop-shadow-[0_20px_80px_rgba(0,0,0,0.8)]"
+                            loading="eager"
                         />
-                        {/* Subtle glow behind player */}
-                        <div className="absolute inset-0 bg-purple-500/10 blur-[100px] -z-10 rounded-full" />
+                        {/* Subtle glow */}
+                        <div className="absolute inset-0 bg-gradient-to-l from-cyan-600/10 to-transparent blur-3xl -z-10 scale-110" />
                     </motion.div>
                 </motion.div>
             )}
 
-            {/* Header (if visible) */}
+            {/* Header */}
             {!hideHeader && (
                 <motion.header
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="absolute top-0 left-0 right-0 z-50 flex flex-row justify-between items-center px-10 py-8"
+                    transition={{ duration: 0.6 }}
+                    className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-6 lg:px-12 py-6"
                 >
-                    <div className="flex flex-row items-center gap-2">
+                    <div className="flex items-center gap-3">
                         {logo.icon}
-                        <span className="font-heading font-bold text-2xl tracking-tight text-white uppercase">
-                            {logo.text}
-                        </span>
+                        {typeof logo.text === "string" ? (
+                            <span className="font-bold text-xl tracking-tight text-white">
+                                {logo.text}
+                            </span>
+                        ) : (
+                            logo.text
+                        )}
                     </div>
 
-                    <nav className="hidden lg:flex flex-row items-center gap-8">
-                        {navigation.map((item, index) => (
-                            <button
-                                key={index}
-                                onClick={item.onClick}
-                                className={cn(
-                                    "transition-all text-lg font-medium",
-                                    item.isActive ? "text-white" : "text-white/50 hover:text-white"
-                                )}
-                            >
-                                {item.label}
-                            </button>
-                        ))}
-                    </nav>
+                    {navigation.length > 0 && (
+                        <nav className="hidden lg:flex items-center gap-10">
+                            {navigation.map((item, index) => (
+                                <button
+                                    key={index}
+                                    onClick={item.onClick}
+                                    className={cn(
+                                        "text-sm font-medium tracking-wide transition-all duration-300",
+                                        item.isActive
+                                            ? "text-white border-b-2 border-blue-500 pb-1"
+                                            : "text-gray-400 hover:text-white hover:border-b hover:border-gray-500 pb-1"
+                                    )}
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
+                        </nav>
+                    )}
 
                     {headerCta && (
                         <button
                             onClick={headerCta.onClick}
-                            className="bg-white text-black px-6 py-2 rounded-full font-bold uppercase tracking-tight hover:bg-white/90 transition"
+                            className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-semibold tracking-wide rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
                         >
                             {headerCta.label}
                         </button>
@@ -254,83 +241,196 @@ export function FoxyHero({
                 </motion.header>
             )}
 
-            {/* Main Content */}
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="relative z-30 flex flex-col items-center px-4 max-w-[1400px]"
-            >
-                <motion.span
-                    variants={itemVariants}
-                    className="text-neutral-400 font-medium tracking-[0.5em] uppercase mb-8 text-xs md:text-sm"
+            {/* Main Content Container */}
+            <div className="relative z-20 flex-1 flex items-center justify-center">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-20 lg:py-0"
                 >
-                    {subtitle}
-                </motion.span>
+                    <div className="flex flex-col items-center text-center space-y-6 lg:space-y-8">
+                        {/* Top Label */}
+                        {(topLabel || subtitle) && (
+                            <motion.div
+                                variants={itemVariants}
+                                className="w-full"
+                            >
+                                {typeof (topLabel || subtitle) === "string" ? (
+                                    <div className="flex items-center justify-center gap-4">
+                                        <div className="h-px w-8 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+                                        <span className="text-sm font-semibold tracking-[0.3em] uppercase text-blue-400">
+                                            {topLabel || subtitle}
+                                        </span>
+                                        <div className="h-px w-8 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+                                    </div>
+                                ) : (
+                                    topLabel || subtitle
+                                )}
+                            </motion.div>
+                        )}
 
-                <motion.h1
-                    className="text-center font-heading font-bold text-[clamp(32px,6vw,90px)] leading-[1] tracking-tighter uppercase mb-16 max-w-[1200px]"
-                    style={{
-                        color: "#E5E7EB", // neutral-200 for a "friendlier" silver-white
-                    }}
-                >
-                    {titleWords.map((word, i) => (
-                        <motion.span
-                            key={i}
+                        {/* Title - Professional Typography */}
+                        <motion.div
                             variants={itemVariants}
-                            className="inline-block mr-[0.3em]"
+                            className="space-y-1 lg:space-y-2"
                         >
-                            {word}
-                        </motion.span>
-                    ))}
-                </motion.h1>
+                            {typeof title === "string" ? (
+                                <div className="relative">
+                                    {/* Subdued background text for depth */}
+                                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[clamp(80px,15vw,180px)] font-black tracking-tighter text-white/5 select-none pointer-events-none">
+                                        ELITE
+                                    </div>
 
-                {ctaButtons && (
-                    <motion.div
-                        variants={itemVariants}
-                        className="flex flex-row flex-wrap justify-center items-center gap-8"
-                    >
-                        <button
-                            onClick={ctaButtons.primary.onClick}
-                            className="bg-neutral-100 text-black px-12 py-5 rounded-full font-bold uppercase tracking-tight hover:scale-105 hover:bg-white transition duration-300"
+                                    {/* Main title with professional styling */}
+                                    <div className="space-y-1">
+                                        <h1 className="text-[clamp(48px,8vw,120px)] font-bold tracking-[-0.02em] leading-[0.9] uppercase">
+                                            <span className="bg-gradient-to-b from-white via-white to-white/90 bg-clip-text text-transparent">
+                                                ELITE
+                                            </span>
+                                        </h1>
+                                        <h2 className="text-[clamp(56px,9vw,140px)] font-bold tracking-[-0.01em] leading-[0.9] uppercase mt-2">
+                                            <span className="bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                                                PERFORMANCE
+                                            </span>
+                                        </h2>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="space-y-2">
+                                    {title}
+                                </div>
+                            )}
+                        </motion.div>
+
+                        {/* Description - Clean & Professional */}
+                        {description && (
+                            <motion.div
+                                variants={itemVariants}
+                                className="max-w-2xl mx-auto pt-4 lg:pt-6"
+                            >
+                                {typeof description === "string" ? (
+                                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed tracking-wide font-light">
+                                        {description}
+                                    </p>
+                                ) : (
+                                    description
+                                )}
+                            </motion.div>
+                        )}
+
+                        {/* CTA Buttons - Professional */}
+                        {ctaButtons && (
+                            <motion.div
+                                variants={itemVariants}
+                                className="flex flex-col sm:flex-row items-center gap-4 pt-8"
+                            >
+                                <button
+                                    onClick={ctaButtons.primary.onClick}
+                                    className="group relative px-8 lg:px-10 py-3 lg:py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-base tracking-wide rounded-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
+                                >
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        {ctaButtons.primary.label}
+                                        <svg
+                                            className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        </svg>
+                                    </span>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-300" />
+                                </button>
+
+                                <button
+                                    onClick={ctaButtons.secondary.onClick}
+                                    className="group px-8 lg:px-10 py-3 lg:py-4 border border-gray-700 text-white font-medium text-base tracking-wide rounded-lg hover:border-gray-500 hover:bg-white/5 transition-all duration-300"
+                                >
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        {ctaButtons.secondary.label}
+                                        <svg
+                                            className="w-4 h-4 opacity-70"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </motion.div>
+                        )}
+
+                        {/* Performance Metrics - Professional */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="grid grid-cols-3 gap-8 pt-12 mt-12 border-t border-gray-800/30 max-w-xl"
                         >
-                            {ctaButtons.primary.label}
-                        </button>
-                        <button
-                            onClick={ctaButtons.secondary.onClick}
-                            className="border border-neutral-700 text-neutral-300 px-12 py-5 rounded-full font-bold uppercase tracking-tight hover:bg-white/5 hover:border-neutral-500 transition duration-300 backdrop-blur-md"
-                        >
-                            {ctaButtons.secondary.label}
-                        </button>
-                    </motion.div>
-                )}
+                            {[
+                                { value: "98%", label: "Performance", sublabel: "Boost" },
+                                { value: "24/7", label: "Biometric", sublabel: "Tracking" },
+                                { value: "3D", label: "Motion", sublabel: "Fit" }
+                            ].map((stat, index) => (
+                                <div key={index} className="text-center">
+                                    <div className="text-2xl font-bold text-white tracking-tight">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider">
+                                        {stat.label}
+                                    </div>
+                                    <div className="text-xs text-gray-500">
+                                        {stat.sublabel}
+                                    </div>
+                                </div>
+                            ))}
+                        </motion.div>
 
-                {children}
+                        {/* Children */}
+                        {children}
+                    </div>
+                </motion.div>
+            </div>
 
-                {/* Dashboard Image (Optional) */}
-                {dashboardImage && (
-                    <motion.div
-                        variants={itemVariants}
-                        className="mt-24 w-full max-w-[1000px] relative px-4"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
+            {/* Dashboard Image */}
+            {dashboardImage && (
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="relative z-20 px-4 max-w-6xl mx-auto mt-16 lg:mt-24"
+                >
+                    <div className="relative rounded-xl overflow-hidden border border-gray-800">
                         <img
                             src={dashboardImage}
                             alt="Dashboard"
-                            className="w-full h-auto rounded-2xl border border-white/5 shadow-2xl"
+                            className="w-full h-auto"
                         />
-                    </motion.div>
-                )}
-            </motion.div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                    </div>
+                </motion.div>
+            )}
 
-            {/* Scroll Indicator */}
+            {/* Professional Scroll Indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.2 }}
-                transition={{ delay: 2, duration: 1 }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
             >
-                <div className="w-[1px] h-16 bg-gradient-to-b from-neutral-500 to-transparent" />
+                <div className="flex flex-col items-center">
+                    <motion.div
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-4 h-8 flex flex-col items-center"
+                    >
+                        <div className="w-px h-4 bg-gray-400 rounded-full" />
+                        <div className="w-px h-4 bg-gray-600 rounded-full mt-1" />
+                    </motion.div>
+                    <span className="text-xs text-gray-500 uppercase tracking-widest mt-2">
+                        Scroll
+                    </span>
+                </div>
             </motion.div>
         </section>
     );
