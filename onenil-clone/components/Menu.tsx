@@ -121,7 +121,7 @@ export default function Menu() {
                 <div className="fixed inset-0 z-[9999]">
                     {/* Backdrop Layer - Semi-transparent dark overlay */}
                     <div
-                        className={`absolute inset-0 bg-black transition-opacity duration-400 ${isVisible ? 'opacity-60' : 'opacity-0'}`}
+                        className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-400 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                         onClick={closeMenu}
                     />
 
@@ -136,19 +136,19 @@ export default function Menu() {
                         {/* Subtle Pattern Overlay */}
                         <div className="absolute inset-0 opacity-5">
                             <div className="absolute inset-0" style={{
-                                backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-                                                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)`,
+                                backgroundImage: `linear-gradient(90deg, var(--border-color) 1px, transparent 1px),
+                                                linear-gradient(var(--border-color) 1px, transparent 1px)`,
                                 backgroundSize: '50px 50px',
                             }} />
                         </div>
 
                         {/* Accent Gradient Edge */}
-                        <div className="absolute left-0 inset-y-0 w-1 bg-gradient-to-b from-blue-500 via-cyan-400 to-purple-500" />
+                        <div className="absolute left-0 inset-y-0 w-1 bg-gradient-to-b from-blue-600 via-cyan-500 to-blue-700" />
 
                         {/* Menu Content */}
                         <div className="relative z-10 h-full overflow-y-auto">
                             {/* Menu Header */}
-                            <div className="px-8 py-6 border-b border-gray-800 bg-gray-900/80 backdrop-blur-sm">
+                            <div className="px-8 py-6 border-b border-border bg-background/80 backdrop-blur-md">
                                 <div className="flex items-center justify-between">
                                     <Link
                                         href="/"
@@ -156,14 +156,14 @@ export default function Menu() {
                                         className="flex items-center gap-4 group"
                                     >
                                         <div className="relative">
-                                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
-                                                <div className="text-white font-bold text-lg">A</div>
+                                            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
+                                                <div className="text-white font-black text-lg">A</div>
                                             </div>
-                                            <div className="absolute -inset-1 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                                            <div className="absolute -inset-1 bg-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
                                         </div>
                                         <div>
-                                            <span className="text-xl font-bold tracking-tight text-white">ATHLON</span>
-                                            <div className="text-xs text-gray-400">Performance Technology</div>
+                                            <span className="text-xl font-black tracking-tight text-foreground uppercase">ATHLON</span>
+                                            <div className="text-[0.6rem] text-muted-foreground uppercase font-black tracking-widest">Performance Technology</div>
                                         </div>
                                     </Link>
 
@@ -171,16 +171,16 @@ export default function Menu() {
                                         <Link
                                             href="/contact"
                                             onClick={closeMenu}
-                                            className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium text-sm rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all hidden md:block"
+                                            className="px-6 py-2.5 bg-blue-600 text-white font-black uppercase tracking-widest text-xs rounded-lg hover:shadow-lg hover:shadow-blue-600/30 transition-all hidden md:block"
                                         >
                                             Contact
                                         </Link>
                                         <button
                                             onClick={toggleMenu}
-                                            className="p-3 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-gray-600 hover:bg-gray-800 transition-all group"
+                                            className="p-3 rounded-lg bg-muted border border-border hover:border-foreground/20 hover:bg-background transition-all group"
                                             aria-label="Close menu"
                                         >
-                                            <IoClose className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                                            <IoClose className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                                         </button>
                                     </div>
                                 </div>
@@ -190,10 +190,10 @@ export default function Menu() {
                             <div className="px-8 py-8">
                                 {/* Navigation Links */}
                                 <div className="mb-12">
-                                    <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-6 px-2">
+                                    <h3 className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-muted-foreground mb-6 px-2">
                                         Navigation
                                     </h3>
-                                    <nav className="space-y-2">
+                                    <nav className="space-y-4">
                                         {menuItems.map((item, index) => (
                                             <div
                                                 key={index}
@@ -205,9 +205,9 @@ export default function Menu() {
                                                     onClick={closeMenu}
                                                     className="group block"
                                                 >
-                                                    <div className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-800/50 hover:border-gray-700 border border-transparent">
+                                                    <div className="flex items-center gap-6 p-4 rounded-2xl transition-all duration-300 hover:bg-blue-500/5 hover:border-blue-500/20 border border-transparent">
                                                         {/* Icon */}
-                                                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                                                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-blue-500/10`}>
                                                             <div className="text-white">
                                                                 {item.icon}
                                                             </div>
@@ -215,18 +215,18 @@ export default function Menu() {
 
                                                         {/* Text Content */}
                                                         <div className="flex-1">
-                                                            <h3 className="text-lg font-semibold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-300 transition-all duration-300">
+                                                            <h3 className="text-2xl font-black text-foreground uppercase tracking-tight group-hover:text-blue-600 transition-all duration-300">
                                                                 {item.label}
                                                             </h3>
-                                                            <p className="text-gray-400 mt-1 text-sm">
+                                                            <p className="text-muted-foreground mt-1 text-sm font-light">
                                                                 {item.description}
                                                             </p>
                                                         </div>
 
                                                         {/* Arrow */}
-                                                        <div className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 transition-all duration-300">
-                                                            <svg className="w-3 h-3 text-gray-400 group-hover:text-blue-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                                                             </svg>
                                                         </div>
                                                     </div>
@@ -236,113 +236,126 @@ export default function Menu() {
                                     </nav>
                                 </div>
 
-                                {/* Contact & Info Section */}
-                                <div className="bg-gray-800/30 rounded-2xl border border-gray-800 p-6 mb-8">
-                                    <h3 className="text-lg font-semibold text-white mb-6">
-                                        <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                    {/* Contact & Info Section */}
+                                    <div className="bg-card rounded-[2rem] border border-border p-8 shadow-sm">
+                                        <h3 className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-blue-600 mb-8">
                                             Contact Information
-                                        </span>
-                                    </h3>
+                                        </h3>
 
-                                    <div className="space-y-6">
-                                        {/* Headquarters */}
-                                        <div className="flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                                <FiMapPin className="w-4 h-4 text-blue-400" />
+                                        <div className="space-y-8">
+                                            {/* Headquarters */}
+                                            <div className="flex items-start gap-4">
+                                                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
+                                                    <FiMapPin className="w-4 h-4 text-blue-600" />
+                                                </div>
+                                                <div>
+                                                    <h4 className="text-[0.6rem] font-black uppercase tracking-widest text-foreground mb-2">Global Headquarters</h4>
+                                                    <address className="not-italic text-muted-foreground text-sm font-light leading-relaxed">
+                                                        123 Performance Drive<br />
+                                                        San Francisco, CA 94107<br />
+                                                        United States
+                                                    </address>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <h4 className="font-medium text-white mb-1">Global Headquarters</h4>
-                                                <address className="not-italic text-gray-300 text-sm leading-relaxed">
-                                                    123 Performance Drive<br />
-                                                    San Francisco, CA 94107<br />
-                                                    United States
-                                                </address>
-                                            </div>
-                                        </div>
 
-                                        {/* Contact */}
-                                        <div className="flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                                                <FiMail className="w-4 h-4 text-cyan-400" />
+                                            {/* Contact */}
+                                            <div className="flex items-start gap-4">
+                                                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0">
+                                                    <FiMail className="w-4 h-4 text-cyan-600" />
+                                                </div>
+                                                <div>
+                                                    <h4 className="text-[0.6rem] font-black uppercase tracking-widest text-foreground mb-2">Electronic Mail</h4>
+                                                    <div className="space-y-1">
+                                                        <a
+                                                            href="mailto:contact@athlon.tech"
+                                                            className="block text-muted-foreground hover:text-blue-600 transition-colors text-sm font-light"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                        >
+                                                            contact@athlon.tech
+                                                        </a>
+                                                        <a
+                                                            href="tel:+14155550123"
+                                                            className="block text-muted-foreground hover:text-blue-600 transition-colors text-sm font-light"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                        >
+                                                            +1 (415) 555-0123
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <h4 className="font-medium text-white mb-1">Contact</h4>
-                                                <div className="space-y-1">
-                                                    <a
-                                                        href="mailto:contact@athlon.tech"
-                                                        className="block text-gray-300 hover:text-cyan-400 transition-colors text-sm"
-                                                        onClick={(e) => e.stopPropagation()}
-                                                    >
-                                                        contact@athlon.tech
-                                                    </a>
-                                                    <a
-                                                        href="tel:+14155550123"
-                                                        className="block text-gray-300 hover:text-cyan-400 transition-colors text-sm"
-                                                        onClick={(e) => e.stopPropagation()}
-                                                    >
-                                                        +1 (415) 555-0123
-                                                    </a>
+
+                                            {/* Social Links */}
+                                            <div className="pt-8 border-t border-border">
+                                                <h4 className="text-[0.6rem] font-black uppercase tracking-widest text-foreground mb-4">Digital Presence</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {['LinkedIn', 'Twitter', 'Instagram', 'YouTube'].map((platform) => (
+                                                        <a
+                                                            key={platform}
+                                                            href="#"
+                                                            className="px-4 py-2 bg-muted text-muted-foreground rounded-lg border border-border hover:border-blue-500 hover:text-blue-600 transition-all text-[0.6rem] font-black uppercase tracking-widest"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                        >
+                                                            {platform}
+                                                        </a>
+                                                    ))}
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        {/* Social Links */}
-                                        <div className="pt-4 border-t border-gray-800">
-                                            <h4 className="font-medium text-white mb-3">Follow Us</h4>
-                                            <div className="flex flex-wrap gap-2">
-                                                {['LinkedIn', 'Twitter', 'Instagram', 'YouTube'].map((platform) => (
-                                                    <a
-                                                        key={platform}
-                                                        href="#"
-                                                        className="px-3 py-1.5 bg-gray-900/50 text-gray-300 rounded-lg border border-gray-800 hover:border-gray-700 hover:text-white transition-all text-xs"
-                                                        onClick={(e) => e.stopPropagation()}
-                                                    >
-                                                        {platform}
-                                                    </a>
-                                                ))}
+                                    <div className="space-y-8">
+                                        {/* Newsletter Signup */}
+                                        <div className="bg-blue-600 p-8 rounded-[2rem] shadow-xl shadow-blue-600/20">
+                                            <h4 className="text-xl font-black text-white uppercase tracking-tight mb-3">Stay Updated</h4>
+                                            <p className="text-white/80 text-sm font-light mb-6">
+                                                Join our community for exclusive access to R&D updates and product launches.
+                                            </p>
+                                            <form
+                                                className="space-y-3"
+                                                onSubmit={(e) => {
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                }}
+                                            >
+                                                <input
+                                                    type="email"
+                                                    placeholder="Your email address"
+                                                    className="w-full px-5 py-3.5 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:border-white/50 text-sm"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                />
+                                                <button
+                                                    type="submit"
+                                                    className="w-full py-3.5 bg-white text-blue-600 font-black uppercase tracking-widest text-xs rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                >
+                                                    Subscribe
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        {/* Quick Info */}
+                                        <div className="bg-muted p-8 rounded-[2rem] border border-border">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <FiGlobe className="text-blue-600" />
+                                                <span className="text-[0.6rem] font-black uppercase tracking-[0.2em] text-foreground">Global Operations</span>
                                             </div>
+                                            <p className="text-xs text-muted-foreground font-light leading-relaxed">
+                                                Operating in over 45 countries with dedicated fulfillment centers in North America, Europe, and Asia-Pacific.
+                                            </p>
                                         </div>
                                     </div>
-                                </div>
-
-                                {/* Newsletter Signup */}
-                                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 rounded-2xl border border-gray-800 p-6">
-                                    <h4 className="font-medium text-white mb-3">Stay Updated</h4>
-                                    <p className="text-gray-400 text-sm mb-4">
-                                        Subscribe to our newsletter for performance insights.
-                                    </p>
-                                    <form
-                                        className="flex flex-col sm:flex-row gap-3"
-                                        onSubmit={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                        }}
-                                    >
-                                        <input
-                                            type="email"
-                                            placeholder="Your email"
-                                            className="flex-1 px-4 py-2.5 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm"
-                                            onClick={(e) => e.stopPropagation()}
-                                        />
-                                        <button
-                                            type="submit"
-                                            className="px-4 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all text-sm whitespace-nowrap"
-                                            onClick={(e) => e.stopPropagation()}
-                                        >
-                                            Subscribe
-                                        </button>
-                                    </form>
                                 </div>
                             </div>
 
                             {/* Footer */}
-                            <div className="px-8 py-6 border-t border-gray-800 bg-gray-900/50 mt-auto">
-                                <div className="text-center text-gray-500 text-xs">
-                                    <p>© {new Date().getFullYear()} Athlon Performance Technologies</p>
-                                    <div className="flex flex-wrap justify-center gap-4 mt-2">
-                                        <Link href="/privacy" className="hover:text-gray-300 transition-colors" onClick={closeMenu}>Privacy</Link>
-                                        <Link href="/terms" className="hover:text-gray-300 transition-colors" onClick={closeMenu}>Terms</Link>
-                                        <Link href="/cookies" className="hover:text-gray-300 transition-colors" onClick={closeMenu}>Cookies</Link>
+                            <div className="px-8 py-8 border-t border-border bg-muted/30 mt-auto">
+                                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                                    <p className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground">© {new Date().getFullYear()} Athlon Performance</p>
+                                    <div className="flex flex-wrap justify-center gap-8">
+                                        <Link href="/privacy" className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground hover:text-blue-600 transition-colors" onClick={closeMenu}>Privacy</Link>
+                                        <Link href="/terms" className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground hover:text-blue-600 transition-colors" onClick={closeMenu}>Terms</Link>
+                                        <Link href="/cookies" className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground hover:text-blue-600 transition-colors" onClick={closeMenu}>Cookies</Link>
                                     </div>
                                 </div>
                             </div>

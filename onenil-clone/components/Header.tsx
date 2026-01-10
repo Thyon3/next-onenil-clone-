@@ -6,6 +6,7 @@ import { useCart } from '@/lib/cart-context';
 import { FiShoppingBag, FiSun, FiMoon } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 import { useTheme } from '@/lib/theme-context';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
     const { cartCount } = useCart();
@@ -17,48 +18,64 @@ export default function Header() {
     }, []);
 
     return (
-        <header className="fixed top-0 left-0 w-full z-[100] px-8 py-6 text-white transition-transform mix-blend-difference">
+        <header className="fixed top-0 left-0 w-full z-[100] px-10 py-8 transition-all duration-500 border-b border-transparent bg-background/0 hover:bg-background/80 hover:backdrop-blur-xl hover:border-border">
             <div className="max-w-[1800px] mx-auto flex items-center justify-between">
                 <div className="z-[101]">
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <div className="h-6 w-0.5 bg-gradient-to-b from-blue-500 to-cyan-400 group-hover:h-8 transition-all duration-300" />
-                        <span className="text-2xl font-bold tracking-wider bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent font-heading uppercase">
-                            ATHLON
-                        </span>
+                    <Link href="/" className="flex items-center gap-4 group">
+                        <div className="relative">
+                            <span className="text-3xl font-black tracking-tighter italic uppercase text-foreground">
+                                ONENIL<span className="text-blue-600">.</span>
+                            </span>
+                            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-500" />
+                        </div>
                     </Link>
                 </div>
-                <nav className="flex items-center gap-12">
-                    <Link
-                        href="/shop"
-                        className="font-manrope text-[0.85rem] uppercase font-semibold tracking-widest relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-white after:transform after:origin-right after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
-                    >
-                        Store
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="font-manrope text-[0.85rem] uppercase font-semibold tracking-widest relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-white after:transform after:origin-right after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
-                    >
-                        Get in touch
-                    </Link>
 
-                    <Link href="/cart" className="relative group p-2">
-                        <FiShoppingBag className="text-xl group-hover:text-blue-400 transition-colors" />
-                        {mounted && cartCount > 0 && (
-                            <span className="absolute -top-1 -right-1 bg-blue-600 text-[0.6rem] font-bold w-4 h-4 rounded-full flex items-center justify-center animate-in zoom-in duration-300">
-                                {cartCount}
-                            </span>
-                        )}
-                    </Link>
+                <nav className="flex items-center gap-16">
+                    <div className="hidden lg:flex items-center gap-12">
+                        {[
+                            { label: 'Infrastructure', href: '/technology' },
+                            { label: 'Market', href: '/shop' },
+                            { label: 'Protocols', href: '/contact' }
+                        ].map((link) => (
+                            <Link
+                                key={link.label}
+                                href={link.href}
+                                className="text-[0.65rem] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all duration-300 relative group py-2"
+                            >
+                                {link.label}
+                                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                            </Link>
+                        ))}
+                    </div>
 
-                    <button
-                        onClick={toggleTheme}
-                        className="p-2 rounded-full hover:bg-white/10 transition-colors"
-                        aria-label="Toggle theme"
-                    >
-                        {mounted && (theme === 'dark' ? <FiSun className="text-xl" /> : <FiMoon className="text-xl" />)}
-                    </button>
+                    <div className="flex items-center gap-8 pl-12 border-l border-border/50">
+                        <Link href="/cart" className="relative group p-3 text-foreground hover:text-blue-600 transition-all duration-300 rounded-xl bg-card border border-border">
+                            <FiShoppingBag className="text-xl" />
+                            <AnimatePresence>
+                                {mounted && cartCount > 0 && (
+                                    <motion.span
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        exit={{ scale: 0 }}
+                                        className="absolute -top-2 -right-2 bg-blue-600 text-white text-[0.55rem] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-background"
+                                    >
+                                        {cartCount}
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
+                        </Link>
 
-                    <Menu />
+                        <button
+                            onClick={toggleTheme}
+                            className="p-3 rounded-xl bg-card border border-border text-foreground hover:bg-foreground hover:text-background transition-all duration-500 shadow-sm"
+                            aria-label="Toggle theme"
+                        >
+                            {mounted && (theme === 'dark' ? <FiSun className="text-lg" /> : <FiMoon className="text-lg" />)}
+                        </button>
+
+                        <Menu />
+                    </div>
                 </nav>
             </div>
         </header>

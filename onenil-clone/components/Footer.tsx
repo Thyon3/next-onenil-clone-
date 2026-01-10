@@ -7,46 +7,48 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-background text-foreground relative overflow-hidden">
+        <footer className="bg-background text-foreground relative overflow-hidden border-t border-border">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-background" />
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-cyan-600/5 rounded-full blur-[120px]" />
             </div>
 
-            <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-20 md:pt-32 pb-12">
+            <div className="relative z-10 px-8 md:px-12 lg:px-20 pt-32 pb-16">
                 {/* Newsletter Section */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-24"
+                    transition={{ duration: 1 }}
+                    className="mb-32"
                 >
-                    <div className="bg-card backdrop-blur-sm rounded-2xl border border-border p-10 md:p-14 max-w-5xl mx-auto">
-                        <div className="grid lg:grid-cols-2 gap-10 items-center">
+                    <div className="bg-card backdrop-blur-xl rounded-[3rem] border border-border p-12 md:p-20 max-w-7xl mx-auto shadow-sm group hover:border-blue-600/30 transition-all duration-700">
+                        <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                                    <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                                        Stay Ahead in Performance
+                                <h3 className="text-4xl md:text-6xl font-black mb-8 leading-[0.8] tracking-tighter uppercase italic drop-shadow-sm">
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600">
+                                        Join The <br />Innovation.
                                     </span>
                                 </h3>
-                                <p className="text-lg text-muted-foreground leading-relaxed">
-                                    Subscribe to our newsletter for the latest in sports technology,
-                                    product launches, and performance insights from our research teams.
+                                <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-md">
+                                    Subscribe to receive proprietary research insights and tactical performance updates.
                                 </p>
                             </div>
-                            <form className="flex flex-col sm:flex-row gap-4">
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email"
-                                    className="flex-1 px-6 py-4 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all text-base"
-                                />
+                            <form className="flex flex-col gap-6">
+                                <div className="relative">
+                                    <input
+                                        type="email"
+                                        placeholder="ELECTRONIC MAIL ADDRESS"
+                                        className="w-full px-10 py-6 bg-background border border-border rounded-2xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600/20 transition-all text-[0.7rem] font-black tracking-widest uppercase"
+                                    />
+                                </div>
                                 <button
                                     type="submit"
-                                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-base rounded-lg hover:shadow-xl hover:shadow-blue-500/30 transition-all whitespace-nowrap"
+                                    className="w-full px-10 py-6 bg-foreground text-background font-black text-[0.7rem] uppercase tracking-[0.4em] rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-xl"
                                 >
-                                    Subscribe
+                                    Initialize Subscription
                                 </button>
                             </form>
                         </div>
@@ -54,266 +56,140 @@ export default function Footer() {
                 </motion.div>
 
                 {/* Main Footer Content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-20"
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-                        {/* Company Info */}
-                        <div className="lg:col-span-1">
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="h-6 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-cyan-400" />
-                                <span className="text-2xl font-bold tracking-tight">ATHLON</span>
-                            </div>
-                            <p className="text-muted-foreground text-lg mb-8 max-w-xs leading-relaxed">
-                                Engineering the future of athletic performance through
-                                innovative material science and biomechanical research.
-                            </p>
-                            <div className="flex items-center gap-4">
-                                {['🏢', '🔬', '⚡', '🎯'].map((icon, i) => (
-                                    <div key={i} className="w-12 h-12 rounded-xl bg-gray-900/50 border border-gray-800 flex items-center justify-center text-xl hover:bg-gray-800/50 transition-all cursor-default">
-                                        {icon}
-                                    </div>
-                                ))}
-                            </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
+                    {/* Company Info */}
+                    <div className="lg:col-span-1">
+                        <div className="mb-12">
+                            <span className="text-4xl font-black tracking-tighter italic uppercase text-foreground">
+                                ONENIL<span className="text-blue-600">.</span>
+                            </span>
                         </div>
-
-                        {/* Quick Links */}
-                        <div>
-                            <h4 className="text-base font-semibold tracking-wider uppercase text-blue-400 mb-8 pb-4 border-b border-border">
-                                Explore
-                            </h4>
-                            <div className="space-y-4">
-                                {[
-                                    { label: 'Technology', href: '/technology' },
-                                    { label: 'Collections', href: '/collections' },
-                                    { label: 'Research', href: '/research' },
-                                    { label: 'Athletes', href: '/athletes' },
-                                    { label: 'Partners', href: '/partners' },
-                                    { label: 'Performance Lab', href: '/lab' }
-                                ].map((link) => (
-                                    <Link
-                                        key={link.label}
-                                        href={link.href}
-                                        className="block text-muted-foreground hover:text-blue-400 transition-colors text-lg"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
-                            </div>
+                        <p className="text-muted-foreground text-xl mb-12 max-w-xs leading-relaxed font-light">
+                            Engineering the future of human potential through
+                            advanced material science and biometric AI.
+                        </p>
+                        <div className="flex items-center gap-4">
+                            {['LinkedIn', 'X', 'Insta'].map((item, i) => (
+                                <div key={i} className="px-6 py-3 rounded-xl bg-card border border-border text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground hover:text-foreground hover:border-foreground transition-all cursor-pointer shadow-sm">
+                                    {item}
+                                </div>
+                            ))}
                         </div>
+                    </div>
 
-                        {/* Resources */}
-                        <div>
-                            <h4 className="text-base font-semibold tracking-wider uppercase text-cyan-400 mb-8 pb-4 border-b border-border">
-                                Resources
-                            </h4>
-                            <div className="space-y-4">
-                                {[
-                                    { label: 'Performance Guides', href: '/guides' },
-                                    { label: 'Research Papers', href: '/papers' },
-                                    { label: 'Athlete Testimonials', href: '/testimonials' },
-                                    { label: 'Technology White Papers', href: '/whitepapers' },
-                                    { label: 'Investor Relations', href: '/investors' },
-                                    { label: 'Blog & Insights', href: '/blog' }
-                                ].map((link) => (
-                                    <Link
-                                        key={link.label}
-                                        href={link.href}
-                                        className="block text-muted-foreground hover:text-cyan-400 transition-colors text-lg"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
-                            </div>
+                    {/* Links Column 1 */}
+                    <div>
+                        <h4 className="text-[0.7rem] font-black tracking-[0.4em] uppercase text-blue-600 mb-10 italic">
+                            Infrastructure
+                        </h4>
+                        <div className="space-y-6">
+                            {['Technology', 'Performance Lab', 'Material Science', 'Biometrics', 'Innovation Hub'].map((link) => (
+                                <Link
+                                    key={link}
+                                    href="#"
+                                    className="block text-xl text-muted-foreground hover:text-foreground transition-all font-light"
+                                >
+                                    {link}
+                                </Link>
+                            ))}
                         </div>
+                    </div>
 
-                        {/* Contact & Social */}
-                        <div>
-                            <h4 className="text-base font-semibold tracking-wider uppercase text-purple-400 mb-8 pb-4 border-b border-border">
-                                Connect
-                            </h4>
-                            <div className="space-y-6">
-                                <div>
-                                    <div className="text-sm text-muted-foreground mb-2">Email</div>
-                                    <a
-                                        href="mailto:contact@athlon.tech"
-                                        className="text-muted-foreground hover:text-purple-400 transition-colors text-lg font-medium"
-                                    >
-                                        contact@athlon.tech
-                                    </a>
-                                </div>
-                                <div>
-                                    <div className="text-sm text-muted-foreground mb-2">Phone</div>
-                                    <a
-                                        href="tel:+14155550123"
-                                        className="text-muted-foreground hover:text-purple-400 transition-colors text-lg font-medium"
-                                    >
-                                        +1 (415) 555-0123
-                                    </a>
-                                </div>
-                                <div className="pt-4">
-                                    <div className="text-sm text-muted-foreground mb-4">Follow Us</div>
-                                    <div className="flex items-center gap-4">
-                                        {[
-                                            { platform: 'LinkedIn', icon: '👔', color: 'hover:bg-blue-900/30 hover:border-blue-700' },
-                                            { platform: 'Twitter', icon: '🐦', color: 'hover:bg-sky-900/30 hover:border-sky-700' },
-                                            { platform: 'Instagram', icon: '📸', color: 'hover:bg-pink-900/30 hover:border-pink-700' },
-                                            { platform: 'YouTube', icon: '🎥', color: 'hover:bg-red-900/30 hover:border-red-700' }
-                                        ].map((social) => (
-                                            <a
-                                                key={social.platform}
-                                                href="#"
-                                                className={`w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center text-2xl transition-all duration-300 ${social.color}`}
-                                                title={social.platform}
-                                                aria-label={`Follow us on ${social.platform}`}
-                                            >
-                                                {social.icon}
-                                            </a>
-                                        ))}
-                                    </div>
-                                </div>
+                    {/* Links Column 2 */}
+                    <div>
+                        <h4 className="text-[0.7rem] font-black tracking-[0.4em] uppercase text-cyan-500 mb-10 italic">
+                            Ecosystem
+                        </h4>
+                        <div className="space-y-6">
+                            {['Elite Athletes', 'Research Papers', 'Collections', 'Partnerships', 'Global Logistics'].map((link) => (
+                                <Link
+                                    key={link}
+                                    href="#"
+                                    className="block text-xl text-muted-foreground hover:text-foreground transition-all font-light"
+                                >
+                                    {link}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Contact info */}
+                    <div>
+                        <h4 className="text-[0.7rem] font-black tracking-[0.4em] uppercase text-foreground mb-10 italic">
+                            Connect
+                        </h4>
+                        <div className="space-y-10">
+                            <div>
+                                <div className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground mb-3">Electronic Inquiries</div>
+                                <a href="mailto:contact@onnenil.tech" className="text-2xl font-black italic tracking-tighter text-foreground hover:text-blue-600 transition-colors uppercase">
+                                    hq@onnenil.tech
+                                </a>
+                            </div>
+                            <div>
+                                <div className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground mb-3">Global Communications</div>
+                                <a href="tel:+14155550123" className="text-2xl font-black italic tracking-tighter text-foreground hover:text-blue-600 transition-colors">
+                                    +1 (415) 555-0123
+                                </a>
                             </div>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
-                {/* Global Offices */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="mb-16 pt-12 border-t border-gray-800"
-                >
-                    <h4 className="text-lg font-semibold tracking-wider uppercase text-muted-foreground mb-10">
-                        Global Offices
+                {/* Offices Grid */}
+                <div className="mb-32 pt-16 border-t border-border">
+                    <h4 className="text-[0.7rem] font-black tracking-[0.5em] uppercase text-muted-foreground mb-12 italic">
+                        Operational Coordinates
                     </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                         {[
-                            {
-                                city: 'San Francisco',
-                                country: 'United States',
-                                role: 'Global Headquarters & R&D',
-                                address: '123 Performance Drive, CA 94107'
-                            },
-                            {
-                                city: 'Boston',
-                                country: 'United States',
-                                role: 'Sports Science Research Center',
-                                address: '456 Innovation Way, MA 02134'
-                            },
-                            {
-                                city: 'Amsterdam',
-                                country: 'Netherlands',
-                                role: 'European Innovation Hub',
-                                address: '789 Techstraat, 1017 WV'
-                            },
-                            {
-                                city: 'Tokyo',
-                                country: 'Japan',
-                                role: 'Asia Pacific Headquarters',
-                                address: '101 Ginza, Chuo City, 104-0061'
-                            }
+                            { city: 'San Francisco', role: 'Global HQ & R&D', code: 'US-SF-01' },
+                            { city: 'Amsterdam', role: 'European Hub', code: 'NL-AMS-04' },
+                            { city: 'Tokyo', role: 'APAC Operations', code: 'JP-TYO-09' },
+                            { city: 'Boston', role: 'Materials Lab', code: 'US-BOS-02' }
                         ].map((office) => (
-                            <div key={office.city} className="p-6 bg-gray-900/30 rounded-xl border border-gray-800 hover:border-gray-700 transition-all">
-                                <div className="font-bold text-xl text-white mb-2">{office.city}</div>
-                                <div className="text-base text-gray-300 mb-1">{office.country}</div>
-                                <div className="text-sm text-blue-400 mb-3">{office.role}</div>
-                                <div className="text-sm text-gray-400 leading-relaxed">{office.address}</div>
+                            <div key={office.city} className="p-10 bg-card rounded-[2.5rem] border border-border group hover:border-blue-600/30 transition-all duration-500 shadow-sm">
+                                <div className="text-2xl font-black uppercase tracking-tighter italic text-foreground mb-1 group-hover:text-blue-600 transition-colors">{office.city}</div>
+                                <div className="text-[0.6rem] font-black uppercase tracking-[0.2em] text-muted-foreground mb-6 opacity-60">{office.code}</div>
+                                <div className="text-[0.7rem] font-black uppercase tracking-widest text-foreground">{office.role}</div>
                             </div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Bottom Bar */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="pt-12 border-t border-gray-800"
-                >
-                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-8">
-                        {/* Copyright */}
-                        <div className="text-base text-muted-foreground">
-                            © {currentYear} Athlon Performance Technologies. All rights reserved.
-                        </div>
-
-                        {/* Legal Links */}
-                        <div className="flex flex-wrap gap-8">
-                            <Link href="/privacy" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
-                                Privacy Policy
-                            </Link>
-                            <Link href="/terms" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
-                                Terms of Service
-                            </Link>
-                            <Link href="/cookies" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
-                                Cookie Policy
-                            </Link>
-                            <Link href="/accessibility" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
-                                Accessibility
-                            </Link>
-                            <Link href="/sustainability" className="text-base text-muted-foreground hover:text-foreground transition-colors font-medium">
-                                Sustainability
-                            </Link>
-                        </div>
-
-                        {/* Certification */}
-                        <div className="flex flex-wrap gap-3">
-                            <div className="text-sm text-muted-foreground px-4 py-2 bg-card rounded-full border border-border">
-                                ISO 9001 Certified
-                            </div>
-                            <div className="text-sm text-muted-foreground px-4 py-2 bg-card rounded-full border border-border">
-                                Sustainable Materials
-                            </div>
-                            <div className="text-sm text-muted-foreground px-4 py-2 bg-card rounded-full border border-border">
-                                Athlete Tested
-                            </div>
-                        </div>
+                <div className="pt-16 border-t border-border flex flex-col lg:flex-row justify-between items-center gap-12 text-[0.7rem] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                    <div className="flex flex-wrap justify-center gap-10">
+                        <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Infrastructure</Link>
+                        <Link href="/terms" className="hover:text-foreground transition-colors">Terms of Operations</Link>
+                        <Link href="/cookies" className="hover:text-foreground transition-colors">Digital Tracking</Link>
+                        <Link href="/cookies" className="hover:text-foreground transition-colors">Accessibility Protocol</Link>
                     </div>
 
-                    {/* Back to Top */}
-                    <div className="mt-12 text-center">
-                        <button
-                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            className="inline-flex items-center gap-3 text-base text-muted-foreground hover:text-foreground transition-colors group"
-                        >
-                            <span>Back to Top</span>
+                    <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <span>Systems Active: v.4.0.2</span>
+                    </div>
+
+                    <div>
+                        © {currentYear} ONENIL PERFORMANCE TECHNOLOGIES. ALL RIGHTS RESERVED.
+                    </div>
+                </div>
+
+                {/* Back to top */}
+                <div className="mt-20 flex justify-center">
+                    <button
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        className="group flex flex-col items-center gap-4 text-[0.6rem] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all"
+                    >
+                        <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-500">
                             <svg className="w-5 h-5 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />
                             </svg>
-                        </button>
-                    </div>
-                </motion.div>
+                        </div>
+                        <span>Protocol: Return</span>
+                    </button>
+                </div>
             </div>
-
-            {/* Floating Particles */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none">
-                {[...Array(8)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="absolute w-[2px] h-[2px] bg-blue-400/20 rounded-full"
-                        style={{
-                            left: `${10 + i * 10}%`,
-                            bottom: `${10 + i * 5}%`,
-                            animation: `float ${3 + i}s infinite ease-in-out`,
-                            animationDelay: `${i * 0.3}s`,
-                        }}
-                    />
-                ))}
-            </div>
-
-            {/* CSS for floating animation */}
-            <style jsx>{`
-                @keyframes float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-20px); }
-                }
-            `}</style>
         </footer>
     );
 }
