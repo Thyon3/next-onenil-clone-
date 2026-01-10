@@ -47,32 +47,32 @@ export default function Contact() {
     ];
 
     return (
-        <main className="min-h-screen bg-gray-950 text-white">
+        <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
             {/* Hero Section */}
-            <section className="relative overflow-hidden pt-24 pb-20 px-5 md:px-10 lg:px-20">
+            <section className="relative overflow-hidden pt-40 pb-24 px-8 md:px-12 lg:px-20">
                 {/* Background */}
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-950" />
-                    <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
-                    <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[120px]" />
+                    <div className="absolute inset-0 bg-background" />
+                    <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[150px]" />
+                    <div className="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-cyan-600/5 rounded-full blur-[150px]" />
                 </div>
 
-                <div className="relative z-10 max-w-[1600px] mx-auto">
+                <div className="relative z-10 max-w-[1700px] mx-auto">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-[clamp(3rem,8vw,6rem)] font-bold tracking-tight leading-[0.9] mb-6">
-                            <span className="block bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-                                CONNECT WITH
-                            </span>
-                            <span className="block bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                                THE FUTURE
-                            </span>
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="h-0.5 w-12 bg-blue-600 rounded-full" />
+                            <span className="text-[0.7rem] font-black tracking-[0.5em] uppercase text-blue-600">Contact</span>
+                        </div>
+                        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12 uppercase italic">
+                            Connect <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 drop-shadow-sm">Global Hub.</span>
                         </h1>
 
-                        <p className="text-xl text-gray-300 max-w-3xl leading-relaxed mb-12">
+                        <p className="text-2xl text-muted-foreground max-w-3xl font-light leading-relaxed mb-12">
                             Partner with us to push the boundaries of athletic performance.
                             Whether you're an athlete, retailer, or innovator, let's create something extraordinary together.
                         </p>
@@ -81,50 +81,38 @@ export default function Contact() {
             </section>
 
             {/* Contact Form Section */}
-            <section className="px-5 md:px-10 lg:px-20 max-w-[1600px] mx-auto pb-20">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
+            <section className="px-8 md:px-12 lg:px-20 max-w-[1700px] mx-auto pb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32">
                     {/* Contact Information */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex flex-col gap-12"
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="flex flex-col gap-16"
                     >
                         {/* Global Headquarters */}
-                        <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-xl border border-gray-800 p-8">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-                                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        <div className="bg-card backdrop-blur-sm rounded-[2.5rem] border border-border p-10 lg:p-14 shadow-sm group hover:border-blue-500/30 transition-all duration-500">
+                            <div className="flex items-center gap-6 mb-10">
+                                <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center border border-blue-600/20 group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-blue-500/5">
+                                    <svg className="w-7 h-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                     </svg>
                                 </div>
-                                <h3 className="text-lg font-bold">Global Headquarters</h3>
+                                <h3 className="text-3xl font-black uppercase tracking-tighter italic">Headquarters</h3>
                             </div>
-                            <div className="space-y-3">
-                                <div className="flex items-start gap-3">
-                                    <svg className="w-5 h-5 text-gray-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                    <p className="text-gray-300">
+                            <div className="space-y-8">
+                                <div className="flex items-start gap-4">
+                                    <p className="text-xl text-muted-foreground leading-relaxed font-light">
                                         123 Performance Drive<br />
                                         San Francisco, CA 94107<br />
                                         United States
                                     </p>
                                 </div>
-                                <div className="flex items-center gap-3">
-                                    <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                    <a href="mailto:contact@athlon.com" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                <div className="space-y-4">
+                                    <a href="mailto:contact@athlon.com" className="block text-2xl font-black text-foreground hover:text-blue-600 transition-colors uppercase tracking-tight">
                                         contact@athlon.com
                                     </a>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                    </svg>
-                                    <a href="tel:+14155550123" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                    <a href="tel:+14155550123" className="block text-2xl font-black text-foreground hover:text-blue-600 transition-colors uppercase tracking-tight">
                                         +1 (415) 555-0123
                                     </a>
                                 </div>
@@ -133,18 +121,22 @@ export default function Contact() {
 
                         {/* Regional Offices */}
                         <div>
-                            <h3 className="text-sm font-semibold tracking-widest uppercase text-blue-400 mb-6">Regional Offices</h3>
+                            <h3 className="text-[0.7rem] font-black tracking-[0.4em] uppercase text-blue-600 mb-8">Regional Analytics Hubs</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {[
-                                    { city: 'Amsterdam', country: 'Netherlands', email: 'eu@athlon.com' },
-                                    { city: 'Tokyo', country: 'Japan', email: 'asia@athlon.com' },
-                                    { city: 'Sydney', country: 'Australia', email: 'apac@athlon.com' },
-                                    { city: 'Miami', country: 'USA', email: 'americas@athlon.com' }
+                                    { city: 'Amsterdam', country: 'Netherlands', email: 'eu@athlon.com', icon: '🇪🇺' },
+                                    { city: 'Tokyo', country: 'Japan', email: 'asia@athlon.com', icon: '🇯🇵' },
+                                    { city: 'Sydney', country: 'Australia', email: 'apac@athlon.com', icon: '🇦🇺' },
+                                    { city: 'Miami', country: 'USA', email: 'americas@athlon.com', icon: '🇺🇸' }
                                 ].map((office, index) => (
-                                    <div key={index} className="p-4 bg-gray-900/30 rounded-lg border border-gray-800">
-                                        <div className="font-medium text-white mb-1">{office.city}</div>
-                                        <div className="text-sm text-gray-400 mb-2">{office.country}</div>
-                                        <a href={`mailto:${office.email}`} className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                                    <div key={index} className="p-8 bg-card border border-border rounded-[2rem] shadow-sm hover:border-blue-500/30 transition-all duration-500 group">
+                                        <div className="flex justify-between items-center mb-4">
+                                            <span className="text-2xl">{office.icon}</span>
+                                            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+                                        </div>
+                                        <div className="text-xl font-black text-foreground mb-1 uppercase tracking-tight italic group-hover:text-blue-600 transition-colors">{office.city}</div>
+                                        <div className="text-[0.6rem] font-black text-muted-foreground mb-4 uppercase tracking-widest">{office.country}</div>
+                                        <a href={`mailto:${office.email}`} className="text-[0.65rem] font-black text-blue-600 hover:text-foreground transition-colors uppercase tracking-widest">
                                             {office.email}
                                         </a>
                                     </div>
@@ -154,7 +146,7 @@ export default function Contact() {
 
                         {/* Social & Media */}
                         <div>
-                            <h3 className="text-sm font-semibold tracking-widest uppercase text-cyan-400 mb-6">Connect With Us</h3>
+                            <h3 className="text-[0.7rem] font-black tracking-[0.4em] uppercase text-cyan-600 mb-8">Connect with us</h3>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
                                     { platform: 'Instagram', handle: '@athlon.performance', url: 'https://instagram.com' },
@@ -167,12 +159,12 @@ export default function Contact() {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group p-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-cyan-500 hover:bg-cyan-500/10 transition-all"
+                                        className="group p-6 bg-card border border-border rounded-2xl hover:border-cyan-500/50 hover:bg-muted transition-all duration-500 shadow-sm"
                                     >
-                                        <div className="text-sm font-medium text-white group-hover:text-cyan-300 transition-colors">
+                                        <div className="text-[0.65rem] font-black text-foreground mb-1 uppercase tracking-widest group-hover:text-cyan-600 transition-colors">
                                             {social.platform}
                                         </div>
-                                        <div className="text-xs text-gray-400 group-hover:text-cyan-400 transition-colors">
+                                        <div className="text-[0.6rem] font-black text-muted-foreground uppercase tracking-widest group-hover:text-foreground transition-colors">
                                             {social.handle}
                                         </div>
                                     </a>
@@ -183,45 +175,47 @@ export default function Contact() {
 
                     {/* Contact Form */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 lg:p-12">
+                        <div className="bg-card backdrop-blur-sm rounded-[3rem] border border-border p-10 lg:p-16 shadow-2xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-600/5 to-cyan-500/5 -z-0" />
+
                             {submitSuccess ? (
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    className="text-center py-12"
+                                    className="text-center py-20 relative z-10"
                                 >
-                                    <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                                        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-10 shadow-2xl shadow-blue-500/20">
+                                        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-3">Message Sent Successfully!</h3>
-                                    <p className="text-gray-300 mb-8">
-                                        Thank you for reaching out. Our team will get back to you within 24 hours.
+                                    <h3 className="text-4xl font-black mb-6 uppercase tracking-tighter italic">Mission Received</h3>
+                                    <p className="text-xl text-muted-foreground mb-12 font-light leading-relaxed">
+                                        Thank you for reaching out. Our analysts will review your transmission and get back to you within 24 hours.
                                     </p>
                                     <button
                                         onClick={() => setSubmitSuccess(false)}
-                                        className="text-blue-400 hover:text-blue-300 transition-colors"
+                                        className="px-10 py-5 bg-foreground text-background rounded-2xl font-black uppercase tracking-widest text-[0.7rem] hover:scale-105 transition-all shadow-2xl"
                                     >
-                                        Send another message
+                                        Clear and Resend
                                     </button>
                                 </motion.div>
                             ) : (
-                                <>
-                                    <h2 className="text-2xl font-bold mb-2">Send us a message</h2>
-                                    <p className="text-gray-400 mb-8">
-                                        Tell us about your project, partnership idea, or inquiry.
+                                <div className="relative z-10">
+                                    <h2 className="text-4xl lg:text-5xl font-black mb-4 uppercase tracking-tighter italic">Transmission</h2>
+                                    <p className="text-xl text-muted-foreground mb-12 font-light leading-relaxed">
+                                        Tell us about your project, partnership, or specific inquiry.
                                     </p>
 
-                                    <form onSubmit={handleSubmit} className="space-y-6">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                            <div>
-                                                <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
-                                                    Full Name *
+                                    <form onSubmit={handleSubmit} className="space-y-8">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                            <div className="space-y-3">
+                                                <label htmlFor="name" className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">
+                                                    Subject Name *
                                                 </label>
                                                 <input
                                                     type="text"
@@ -229,13 +223,13 @@ export default function Contact() {
                                                     required
                                                     value={formData.name}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                                                    placeholder="John Smith"
+                                                    className="w-full px-6 py-5 bg-background border border-border rounded-2xl text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm font-black text-[0.7rem] tracking-wider uppercase"
+                                                    placeholder="Enter Full Name"
                                                 />
                                             </div>
 
-                                            <div>
-                                                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
+                                            <div className="space-y-3">
+                                                <label htmlFor="email" className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">
                                                     Email Address *
                                                 </label>
                                                 <input
@@ -244,14 +238,14 @@ export default function Contact() {
                                                     required
                                                     value={formData.email}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                                                    placeholder="john@example.com"
+                                                    className="w-full px-6 py-5 bg-background border border-border rounded-2xl text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm font-black text-[0.7rem] tracking-wider uppercase"
+                                                    placeholder="Enter Email"
                                                 />
                                             </div>
                                         </div>
 
-                                        <div>
-                                            <label htmlFor="company" className="block text-sm font-medium text-gray-400 mb-2">
+                                        <div className="space-y-3">
+                                            <label htmlFor="company" className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">
                                                 Organization
                                             </label>
                                             <input
@@ -259,101 +253,109 @@ export default function Contact() {
                                                 id="company"
                                                 value={formData.company}
                                                 onChange={handleChange}
-                                                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                                                placeholder="Your company or team"
+                                                className="w-full px-6 py-5 bg-background border border-border rounded-2xl text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm font-black text-[0.7rem] tracking-wider uppercase"
+                                                placeholder="Company or Team Name"
                                             />
                                         </div>
 
-                                        <div>
-                                            <label htmlFor="type" className="block text-sm font-medium text-gray-400 mb-2">
+                                        <div className="space-y-3">
+                                            <label htmlFor="type" className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">
                                                 Inquiry Type *
                                             </label>
-                                            <select
-                                                id="type"
-                                                required
-                                                value={formData.type}
-                                                onChange={handleChange}
-                                                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all appearance-none"
-                                            >
-                                                {contactTypes.map((type) => (
-                                                    <option key={type.id} value={type.id}>
-                                                        {type.label}
-                                                    </option>
-                                                ))}
-                                            </select>
+                                            <div className="relative">
+                                                <select
+                                                    id="type"
+                                                    required
+                                                    value={formData.type}
+                                                    onChange={handleChange}
+                                                    className="w-full px-6 py-5 bg-background border border-border rounded-2xl text-foreground focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all appearance-none shadow-sm font-black text-[0.7rem] tracking-wider uppercase"
+                                                >
+                                                    {contactTypes.map((type) => (
+                                                        <option key={type.id} value={type.id}>
+                                                            {type.label}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                                <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-blue-600">
+                                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div>
-                                            <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
-                                                Your Message *
+                                        <div className="space-y-3">
+                                            <label htmlFor="message" className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">
+                                                Transmission Body *
                                             </label>
                                             <textarea
                                                 id="message"
                                                 required
                                                 value={formData.message}
                                                 onChange={handleChange}
-                                                rows={6}
-                                                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
-                                                placeholder="Tell us about your project, partnership idea, or specific inquiry..."
+                                                rows={5}
+                                                className="w-full px-6 py-5 bg-background border border-border rounded-2xl text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none shadow-sm font-black text-[0.7rem] tracking-wider uppercase"
+                                                placeholder="Enter Message Content..."
                                             />
                                         </div>
 
-                                        <div className="pt-4">
+                                        <div className="pt-8">
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className={`group w-full px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${isSubmitting
-                                                    ? 'bg-gray-700 cursor-not-allowed'
-                                                    : 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:shadow-xl hover:shadow-blue-500/30'
+                                                className={`group w-full px-10 py-6 font-black uppercase tracking-[0.2em] text-[0.75rem] rounded-2xl transition-all duration-500 shadow-2xl ${isSubmitting
+                                                    ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                                                    : 'bg-foreground text-background hover:scale-[1.02] hover:shadow-foreground/20'
                                                     }`}
                                             >
                                                 {isSubmitting ? (
-                                                    <span className="flex items-center justify-center gap-2">
-                                                        <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                                                        </svg>
-                                                        Sending...
+                                                    <span className="flex items-center justify-center gap-4">
+                                                        <div className="w-5 h-5 border-2 border-background/20 border-t-background rounded-full animate-spin" />
+                                                        Processing Transmission...
                                                     </span>
                                                 ) : (
-                                                    <span className="flex items-center justify-center gap-2">
-                                                        Send Message
-                                                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                    <span className="flex items-center justify-center gap-4">
+                                                        Submit Transmission
+                                                        <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                                         </svg>
                                                     </span>
                                                 )}
                                             </button>
 
-                                            <p className="text-xs text-gray-500 mt-4 text-center">
-                                                By submitting, you agree to our Privacy Policy and Terms of Service.
+                                            <p className="text-[0.55rem] text-muted-foreground mt-8 text-center font-black uppercase tracking-widest leading-loose">
+                                                By submitting, you agree to our standard operating protocols, <br />Privacy Policy and Terms of Service.
                                             </p>
                                         </div>
                                     </form>
-                                </>
+                                </div>
                             )}
                         </div>
 
-                        {/* Additional Info */}
-                        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="p-4 bg-gray-900/30 rounded-lg border border-gray-800">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        {/* Additional Info Cards */}
+                        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="p-8 bg-card border border-border rounded-[2rem] shadow-sm flex items-center gap-6 group hover:border-blue-500/30 transition-all">
+                                <div className="w-12 h-12 rounded-xl bg-blue-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    <span className="text-sm font-medium">Response Time</span>
                                 </div>
-                                <p className="text-sm text-gray-300">Typically within 24 hours</p>
+                                <div>
+                                    <div className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground mb-1">Response Time</div>
+                                    <div className="text-[0.65rem] font-black uppercase tracking-widest text-foreground">Within 24 Hours</div>
+                                </div>
                             </div>
 
-                            <div className="p-4 bg-gray-900/30 rounded-lg border border-gray-800">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            <div className="p-8 bg-card border border-border rounded-[2rem] shadow-sm flex items-center gap-6 group hover:border-cyan-500/30 transition-all">
+                                <div className="w-12 h-12 rounded-xl bg-cyan-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg className="w-6 h-6 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                    <span className="text-sm font-medium">Priority Support</span>
                                 </div>
-                                <p className="text-sm text-gray-300">For athletes & partners</p>
+                                <div>
+                                    <div className="text-[0.6rem] font-black uppercase tracking-widest text-muted-foreground mb-1">Priority Channel</div>
+                                    <div className="text-[0.65rem] font-black uppercase tracking-widest text-foreground">Athletes & Partners</div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -361,38 +363,37 @@ export default function Contact() {
             </section>
 
             {/* Newsletter CTA */}
-            <section className="px-5 md:px-10 lg:px-20 max-w-[1600px] mx-auto pb-20">
+            <section className="px-8 md:px-12 lg:px-20 max-w-[1700px] mx-auto pb-32">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 md:p-12 text-center"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="bg-foreground text-background rounded-[4rem] p-16 md:p-24 text-center shadow-2xl relative overflow-hidden group"
                 >
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                        <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                            Stay Ahead of the Curve
-                        </span>
-                    </h3>
-                    <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-                        Subscribe to our newsletter for the latest in athletic innovation,
-                        product launches, and performance insights.
-                    </p>
-                    <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="flex-1 px-6 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                        />
-                        <button
-                            type="submit"
-                            className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all"
-                        >
-                            Subscribe
-                        </button>
-                    </form>
-                    <p className="text-xs text-gray-500 mt-4">
-                        We respect your privacy. Unsubscribe at any time.
-                    </p>
+                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 blur-[150px] rounded-full -z-0" />
+
+                    <div className="relative z-10 max-w-3xl mx-auto">
+                        <h3 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter italic">
+                            Stay Ahead <br />of the Curve
+                        </h3>
+                        <p className="text-xl text-background/60 mb-12 font-light leading-relaxed">
+                            Subscribe for the latest in athletic innovation, exclusive product launches, and deep performance insights.
+                        </p>
+                        <form className="flex flex-col sm:flex-row gap-6">
+                            <input
+                                type="email"
+                                placeholder="ENTER EMAIL ADDRESS"
+                                className="flex-1 px-8 py-6 bg-background/10 border border-background/20 rounded-2xl text-background placeholder:text-background/30 focus:outline-none focus:border-blue-500 transition-all font-black text-[0.7rem] tracking-wider uppercase"
+                            />
+                            <button
+                                type="submit"
+                                className="px-12 py-6 bg-background text-foreground font-black uppercase tracking-[0.2em] text-[0.7rem] rounded-2xl hover:scale-105 transition-all shadow-2xl"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
                 </motion.div>
             </section>
         </main>

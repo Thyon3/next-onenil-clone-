@@ -108,7 +108,7 @@ export default function Services() {
                             </h2>
                         </div>
                         <div className="lg:w-1/3">
-                            <p className="text-lg text-gray-300 max-w-md">
+                            <p className="text-xl text-muted-foreground max-w-md font-light">
                                 We develop proprietary technologies that enhance athletic performance through
                                 material science, biomechanics, and data intelligence.
                             </p>
@@ -117,7 +117,7 @@ export default function Services() {
                 </motion.div>
 
                 {/* Technology Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {technologies.map((tech, index) => (
                         <motion.div
                             key={tech.title}
@@ -127,41 +127,38 @@ export default function Services() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group"
                         >
-                            <div className="relative overflow-hidden rounded-xl border border-border bg-card backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 h-full">
+                            <div className="relative overflow-hidden rounded-[2.5rem] border border-border bg-card backdrop-blur-sm hover:border-blue-500/30 transition-all duration-700 h-full p-1 shadow-sm">
                                 {/* Icon */}
-                                <div className="p-6">
-                                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                <div className="p-10">
+                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-blue-500/10`}>
                                         <div className="text-white">
                                             {tech.icon}
                                         </div>
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-xl font-bold mb-4 group-hover:text-blue-400 transition-colors">
+                                    <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter text-foreground group-hover:text-blue-600 transition-colors italic">
                                         {tech.title}
                                     </h3>
 
                                     {/* Description */}
-                                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                                    <p className="text-muted-foreground mb-8 leading-relaxed font-light">
                                         {tech.description}
                                     </p>
 
                                     {/* Stats */}
-                                    <div className="space-y-2">
+                                    <div className="space-y-3">
                                         {tech.stats.map((stat, i) => (
-                                            <div key={i} className="flex items-center gap-2">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400" />
-                                                <span className="text-sm text-muted-foreground">{stat}</span>
+                                            <div key={i} className="flex items-center gap-3">
+                                                <div className="w-2 h-2 rounded-full bg-blue-500" />
+                                                <span className="text-[0.65rem] font-black uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">{stat}</span>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
                                 {/* Hover Effect */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                                {/* Corner Accent */}
-                                <div className={`absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-bl ${tech.color} rounded-bl-3xl`} />
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                             </div>
                         </motion.div>
                     ))}
@@ -175,20 +172,20 @@ export default function Services() {
                     transition={{ duration: 0.6, delay: 0.8 }}
                     className="mt-20"
                 >
-                    <div className="bg-card backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12">
-                        <div className="grid md:grid-cols-4 gap-8">
+                    <div className="bg-card backdrop-blur-sm rounded-[3rem] border border-border p-12 md:p-16 shadow-sm">
+                        <div className="grid md:grid-cols-4 gap-12">
                             {[
-                                { value: "8", label: "Proprietary Technologies", description: "Patented innovations" },
-                                { value: "15+", label: "Years Research", description: "Material science development" },
-                                { value: "500+", label: "Athlete Tests", description: "Professional validation" },
-                                { value: "98%", label: "Success Rate", description: "Performance improvement" }
+                                { value: "8", label: "Proprietary Tech", description: "Patented innovations" },
+                                { value: "15+", label: "Years Research", description: "Material science" },
+                                { value: "500+", label: "Athlete Tests", description: "Elite validation" },
+                                { value: "98%", label: "Success Rate", description: "Performance gain" }
                             ].map((stat, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                                <div key={index} className="text-center group">
+                                    <div className="text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500 tracking-tighter">
                                         {stat.value}
                                     </div>
-                                    <div className="text-lg font-semibold mt-2">{stat.label}</div>
-                                    <div className="text-sm text-gray-400 mt-1">{stat.description}</div>
+                                    <div className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-foreground mt-4 mb-2">{stat.label}</div>
+                                    <div className="text-[0.6rem] text-muted-foreground uppercase tracking-widest font-bold">{stat.description}</div>
                                 </div>
                             ))}
                         </div>
@@ -203,34 +200,36 @@ export default function Services() {
                     transition={{ duration: 0.6, delay: 1 }}
                     className="mt-20 text-center"
                 >
-                    <div className="inline-block bg-card backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12 max-w-2xl text-foreground">
-                        <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                            <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                                Experience the Difference
-                            </span>
-                        </h3>
-                        <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                            Discover how our technology can transform your athletic performance.
-                            Schedule a consultation with our performance specialists.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a
-                                href="/technology"
-                                className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300"
-                            >
-                                <span className="flex items-center justify-center gap-2">
-                                    Explore Technology
-                                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                    </svg>
-                                </span>
-                            </a>
-                            <a
-                                href="/demo"
-                                className="group px-8 py-4 border border-gray-700 text-white font-semibold rounded-lg hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300"
-                            >
-                                Book a Demo
-                            </a>
+                    <div className="inline-block bg-foreground text-background rounded-[3rem] p-12 md:p-20 max-w-3xl shadow-2xl relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity duration-1000" />
+
+                        <div className="relative z-10">
+                            <h3 className="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter italic">
+                                Experience <br />the Difference
+                            </h3>
+                            <p className="text-background/70 mb-12 max-w-xl mx-auto text-lg font-light leading-relaxed">
+                                Discover how our technology can transform your athletic performance.
+                                Schedule a consultation with our performance specialists.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a
+                                    href="/technology"
+                                    className="group/btn px-10 py-5 bg-background text-foreground font-black uppercase tracking-widest text-[0.7rem] rounded-2xl hover:scale-105 transition-all duration-300 shadow-xl"
+                                >
+                                    <span className="flex items-center justify-center gap-3">
+                                        Explore Tech
+                                        <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </svg>
+                                    </span>
+                                </a>
+                                <a
+                                    href="/contact"
+                                    className="group/btn px-10 py-5 border border-background/20 text-background font-black uppercase tracking-widest text-[0.7rem] rounded-2xl hover:bg-background/5 transition-all duration-300"
+                                >
+                                    Book a Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </motion.div>
