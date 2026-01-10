@@ -51,12 +51,12 @@ const technologies = [
 export default function TechnologyPage() {
     const router = useRouter();
     return (
-        <main className="min-h-screen bg-black text-white selection:bg-blue-500/30">
+        <main className="min-h-screen bg-background text-foreground selection:bg-blue-500/30 transition-colors duration-300">
             {/* Hero Section */}
             <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-black" />
-                    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-full bg-blue-600/10 blur-[120px] rounded-full" />
+                    <div className="absolute inset-0 bg-background" />
+                    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-full bg-blue-600/5 blur-[120px] rounded-full" />
                 </div>
 
                 <div className="relative z-10 text-center px-6">
@@ -67,20 +67,20 @@ export default function TechnologyPage() {
                     >
                         <div className="flex items-center justify-center gap-3 mb-6">
                             <div className="h-px w-12 bg-blue-500" />
-                            <span className="text-sm font-bold tracking-[0.4em] uppercase text-blue-400">Innovation Lab</span>
+                            <span className="text-sm font-bold tracking-[0.4em] uppercase text-blue-500">Innovation Lab</span>
                             <div className="h-px w-12 bg-blue-500" />
                         </div>
                         <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-black tracking-[-0.05em] leading-[0.85] uppercase mb-8">
-                            <span className="block text-white">The Tech</span>
-                            <span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">Behind Elite</span>
+                            <span className="block text-foreground">The Tech</span>
+                            <span className="block bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">Behind Elite</span>
                         </h1>
-                        <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                        <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
                             We don't just make gear. We engineer performance multipliers through years of R&D in our dedicated sports science facilities.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
             </section>
 
             {/* Core Tech Grid */}
@@ -93,20 +93,20 @@ export default function TechnologyPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className="group relative p-8 bg-gray-950/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500"
+                            className="group relative p-8 bg-card border border-border rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-sm"
                         >
-                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-3xl text-white mb-8 group-hover:scale-110 transition-transform`}>
+                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-3xl text-white mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/10`}>
                                 {tech.icon}
                             </div>
-                            <h3 className="text-2xl font-bold mb-2 text-white">{tech.title}</h3>
-                            <p className="text-sm text-blue-400 font-bold uppercase tracking-widest mb-4">{tech.subtitle}</p>
-                            <p className="text-gray-400 mb-8 leading-relaxed font-light">{tech.description}</p>
+                            <h3 className="text-2xl font-black mb-2 text-foreground uppercase tracking-tight">{tech.title}</h3>
+                            <p className="text-sm text-blue-600 font-bold uppercase tracking-widest mb-4">{tech.subtitle}</p>
+                            <p className="text-muted-foreground mb-8 leading-relaxed font-light">{tech.description}</p>
 
-                            <div className="grid grid-cols-3 gap-4 border-t border-white/5 pt-8">
+                            <div className="grid grid-cols-3 gap-4 border-t border-border pt-8">
                                 {tech.stats.map((stat, i) => (
                                     <div key={i}>
-                                        <div className="text-lg font-bold text-white mb-1">{stat.value}</div>
-                                        <div className="text-[0.65rem] text-gray-500 uppercase tracking-widest leading-none">{stat.label}</div>
+                                        <div className="text-lg font-black text-foreground mb-1">{stat.value}</div>
+                                        <div className="text-[0.6rem] text-muted-foreground uppercase tracking-widest leading-none font-bold">{stat.label}</div>
                                     </div>
                                 ))}
                             </div>
@@ -119,17 +119,17 @@ export default function TechnologyPage() {
 
             {/* In-depth Feature */}
             <section className="py-32 px-6">
-                <div className="max-w-[1400px] mx-auto bg-gray-950 rounded-[3rem] border border-white/5 overflow-hidden">
+                <div className="max-w-[1400px] mx-auto bg-card rounded-[3rem] border border-border overflow-hidden shadow-sm">
                     <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                         <div className="p-12 lg:p-20 order-2 lg:order-1">
                             <div className="flex items-center gap-3 mb-8">
-                                <span className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-400">Biometric integration</span>
+                                <span className="text-xs font-black uppercase tracking-[0.3em] text-cyan-600">Biometric integration</span>
                             </div>
-                            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-8">
+                            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-foreground mb-8 leading-tight">
                                 Data-Driven <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Excellence.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">Excellence.</span>
                             </h2>
-                            <p className="text-lg text-gray-400 leading-relaxed mb-12 font-light">
+                            <p className="text-lg text-muted-foreground leading-relaxed mb-12 font-light">
                                 Our garments act as a second skin that listens to your body. By integrating silver-fiber sensors directly into the knit, we can capture medical-grade telemetry without the bulk of traditional wearables.
                             </p>
 
@@ -140,8 +140,8 @@ export default function TechnologyPage() {
                                     'Form correction through haptic feedback',
                                     'Heart rate variability monitoring'
                                 ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-4 text-white font-medium">
-                                        <div className="w-6 h-6 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                                    <div key={i} className="flex items-center gap-4 text-foreground font-bold uppercase text-sm tracking-wide">
+                                        <div className="w-6 h-6 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600">
                                             <FiCheckCircle />
                                         </div>
                                         {item}
@@ -149,9 +149,9 @@ export default function TechnologyPage() {
                                 ))}
                             </div>
                         </div>
-                        <div className="relative aspect-square lg:aspect-auto h-full min-h-[500px] order-1 lg:order-2">
-                            <div className="absolute inset-0 bg-gradient-to-r from-gray-950 to-transparent z-10" />
-                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80')] bg-cover bg-center grayscale opacity-40" />
+                        <div className="relative aspect-square lg:aspect-auto h-full min-h-[500px] order-1 lg:order-2 bg-muted">
+                            <div className="absolute inset-0 bg-gradient-to-r from-card to-transparent z-10" />
+                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80')] bg-cover bg-center grayscale opacity-20" />
                             <div className="absolute inset-0 flex items-center justify-center z-20">
                                 <motion.div
                                     animate={{
@@ -171,12 +171,12 @@ export default function TechnologyPage() {
 
             {/* CTA Section */}
             <section className="py-24 px-6 text-center">
-                <div className="max-w-4xl mx-auto p-16 bg-gradient-to-b from-blue-600/10 to-transparent rounded-[3rem] border border-blue-500/10">
-                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-8">Ready to evolve?</h2>
-                    <p className="text-gray-400 mb-12 text-lg">Experience the next generation of athletic apparel today.</p>
+                <div className="max-w-4xl mx-auto p-16 bg-gradient-to-b from-blue-600/5 to-transparent rounded-[3rem] border border-blue-500/10">
+                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-foreground mb-8">Ready to evolve?</h2>
+                    <p className="text-muted-foreground mb-12 text-lg font-light">Experience the next generation of athletic apparel today.</p>
                     <button
                         onClick={() => router.push('/shop')}
-                        className="px-12 py-5 bg-white text-black rounded-2xl font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-white/5"
+                        className="px-12 py-5 bg-foreground text-background rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-foreground/10"
                     >
                         Shop the Technology
                     </button>
