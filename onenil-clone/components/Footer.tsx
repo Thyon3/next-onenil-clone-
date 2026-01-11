@@ -83,13 +83,19 @@ export default function Footer() {
                             Infrastructure
                         </h4>
                         <div className="space-y-6">
-                            {['Technology', 'Performance Lab', 'Material Science', 'Biometrics', 'Innovation Hub'].map((link) => (
+                            {[
+                                { label: 'Technology', href: '/technology' },
+                                { label: 'Performance Lab', href: '/lab' },
+                                { label: 'Material Science', href: '/materials' },
+                                { label: 'Biometrics', href: '/biometrics' },
+                                { label: 'Innovation Hub', href: '/innovation' }
+                            ].map((link) => (
                                 <Link
-                                    key={link}
-                                    href="#"
+                                    key={link.label}
+                                    href={link.href}
                                     className="block text-xl text-muted-foreground hover:text-foreground transition-all font-light"
                                 >
-                                    {link}
+                                    {link.label}
                                 </Link>
                             ))}
                         </div>
@@ -101,13 +107,19 @@ export default function Footer() {
                             Ecosystem
                         </h4>
                         <div className="space-y-6">
-                            {['Elite Athletes', 'Research Papers', 'Collections', 'Partnerships', 'Global Logistics'].map((link) => (
+                            {[
+                                { label: 'Elite Athletes', href: '/athletes' },
+                                { label: 'Research Papers', href: '/research' },
+                                { label: 'Collections', href: '/shop' },
+                                { label: 'Partnerships', href: '/partnerships' },
+                                { label: 'Global Logistics', href: '/logistics' }
+                            ].map((link) => (
                                 <Link
-                                    key={link}
-                                    href="#"
+                                    key={link.label}
+                                    href={link.href}
                                     className="block text-xl text-muted-foreground hover:text-foreground transition-all font-light"
                                 >
-                                    {link}
+                                    {link.label}
                                 </Link>
                             ))}
                         </div>
@@ -162,7 +174,7 @@ export default function Footer() {
                         <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Infrastructure</Link>
                         <Link href="/terms" className="hover:text-foreground transition-colors">Terms of Operations</Link>
                         <Link href="/cookies" className="hover:text-foreground transition-colors">Digital Tracking</Link>
-                        <Link href="/cookies" className="hover:text-foreground transition-colors">Accessibility Protocol</Link>
+                        <Link href="/accessibility" className="hover:text-foreground transition-colors">Accessibility Protocol</Link>
                     </div>
 
                     <div className="flex items-center gap-3">
